@@ -5,9 +5,9 @@ import "./Banner.css";
 
 function Banner() {
   return (
-    <div class="banner row">
-      <div class="banner-desc col-lg-6 px-0">
-        <h1 class="text-thin">
+    <div className="banner row">
+      <div className="banner-desc col-lg-6 px-0">
+        <h1 className="text-thin">
           <strong>See</strong>&nbsp;everything with&nbsp;
           <strong>Clarity</strong>
         </h1>
@@ -17,12 +17,12 @@ function Banner() {
           covered.
         </p>
         <br />
-        <a class="button" href="/shop" style={{ fontSize: "16px" }}>
+        <a className="button" href="/shop" style={{ fontSize: "16px" }}>
           Shop Now &nbsp;
           <span
             role="img"
             aria-label="arrow-right"
-            class="anticon anticon-arrow-right"
+            className="anticon anticon-arrow-right"
           >
             <svg
               viewBox="64 64 896 896"
@@ -38,7 +38,7 @@ function Banner() {
           </span>
         </a>
       </div>
-      <div class="banner-img col-lg-6 px-0"></div>
+      <div className="banner-img col-lg-6 px-0"></div>
     </div>
   );
 }

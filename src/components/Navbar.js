@@ -5,17 +5,17 @@ import "./Navbar.css";
 
 function Navbar() {
   return (
-    <div class="navbar-container">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+    <div className="navbar-container">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">
             <img
               alt="Logo"
               src="https://salinaka-ecommerce.web.app/images/logo-full.059e10fa5fedbfb65165e7565ed3936f.png"
             />
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarTogglerDemo02"
@@ -23,32 +23,36 @@ function Navbar() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="#">
                   Home
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">
+              <li className="nav-item">
+                <a className="nav-link disabled" href="#">
                   Shop
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Featured</a>
+              <li className="nav-item">
+                <a className="nav-link disabled">Featured</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Recommended</a>
+              <li className="nav-item">
+                <a className="nav-link disabled">Recommended</a>
               </li>
             </ul>
-            <div class="d-flex" role="search" style={{ position: "relative" }}>
+            <div
+              className="d-flex"
+              role="search"
+              style={{ position: "relative" }}
+            >
               <span
                 role="img"
                 aria-label="search"
-                class="anticon anticon-search searchbar-icon"
+                className="anticon anticon-search searchbar-icon"
               >
                 <svg
                   viewBox="64 64 896 896"
@@ -63,16 +67,16 @@ function Navbar() {
                 </svg>
               </span>
               <input
-                class="search-input searchbar-input me-4"
+                className="search-input searchbar-input me-4"
                 type="search"
                 placeholder="Search Products..."
               />
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-baseline">
-                <li class="me-5">
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-baseline">
+                <li className="me-5">
                   <span
                     role="img"
                     aria-label="shopping"
-                    class="anticon anticon-shopping"
+                    className="anticon anticon-shopping"
                     style={{ fontSize: "2.4rem" }}
                   >
                     <svg
@@ -88,17 +92,17 @@ function Navbar() {
                     </svg>
                   </span>
                 </li>
-                <li class="nav-item ms-5 me-3">
+                <li className="nav-item ms-5 me-3">
                   <a
-                    class="nav-link active button"
+                    className="nav-link active button"
                     aria-current="page"
                     href="#"
                   >
                     Sign&nbsp;Up
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled button button-muted" href="#">
+                <li className="nav-item">
+                  <a className="nav-link disabled button button-muted" href="#">
                     Sign&nbsp;In
                   </a>
                 </li>
