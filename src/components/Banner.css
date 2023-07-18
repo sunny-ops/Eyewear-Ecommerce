@@ -1,5 +1,4 @@
 .banner {
-  height: 40rem;
   margin: 0rem 100px;
   background: #f3f3f3;
 }
@@ -20,6 +19,7 @@ p {
 }
 
 .banner-img {
+  height: 40rem !important;
   height: 100%;
   background-image: url(https://salinaka-ecommerce.web.app/images/banner-girl.789f1fa6f451ad26c5039fcbc049ace7.png);
   background-size: cover;
