@@ -7,6 +7,7 @@ function App() {
       <Navbar />
       <Banner />
       <Display value={"Featured Product"} />
+      <Display value={"Recommended Products"} />
     </>
   );
 }
