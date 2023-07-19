@@ -57,17 +57,17 @@ function Display(props) {
       <div className="product-display-grid">
         {glasses.map((v) => {
           return (
-            <div class="product-display" role="presentation">
-              <div class="product-display-img">
+            <div className="product-display" role="presentation" key={v.id}>
+              <div className="product-display-img">
                 <img
                   alt=""
-                  class="product-card-img is-img-loaded"
+                  className="product-card-img is-img-loaded"
                   src={v.imgURL}
                 />
               </div>
-              <div class="product-display-details">
+              <div className="product-display-details">
                 <h2>{v.name}</h2>
-                <p class="text-subtle text-italic">{v.category}</p>
+                <p className="text-subtle text-italic">{v.category}</p>
               </div>
             </div>
           );

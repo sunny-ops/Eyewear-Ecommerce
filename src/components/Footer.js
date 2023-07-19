@@ -15,7 +15,7 @@ function Footer() {
       <div className="footer-col-2">
         <img
           alt="Footer logo"
-          class="footer-logo"
+          className="footer-logo"
           src="https://salinaka-ecommerce.web.app/images/logo-full.059e10fa5fedbfb65165e7565ed3936f.png"
         />
         <h5 className="text-center">©&nbsp;2023</h5>
