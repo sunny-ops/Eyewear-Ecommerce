@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar.js";
-import Banner from "./components/Banner.js";
-import Display from "./components/Display.js";
+import Banner from "./components/Home/Banner.js";
+import Display from "./components/Home/Display.js";
 import Footer from "./components/Footer.js";
 function App() {
   return (
