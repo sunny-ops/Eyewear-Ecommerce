@@ -1,5 +1,7 @@
 import React from "react";
 import "./Products.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 function Products() {
   const glasses = [
@@ -123,6 +125,11 @@ function Products() {
             </div>
           );
         })}
+      </div>
+      <div className="d-flex align-items-center justify-content-center padding-l">
+        <button className="button button-small" type="button">
+          Show More Items
+        </button>
       </div>
     </>
   );

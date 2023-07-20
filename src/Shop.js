@@ -9,7 +9,7 @@ function Shop() {
     <>
       <NavbarShop />
       <Products />
-      <Footer />
+      <Footer></Footer>
     </>
   );
 }
