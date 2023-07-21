@@ -21,10 +21,14 @@ html {
   background: #f9f9f9;
 }
 
-.navbar li a {
+/* .navbar li {
   padding: 10px 15px !important;
   font-size: 1.4rem;
-  /* opacity: 0.5; */
+} */
+
+.navbar .nav-link {
+  padding: 10px 15px !important;
+  font-size: 1.4rem;
 }
 
 .navbar .nav-item:hover {
