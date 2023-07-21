@@ -2,13 +2,16 @@ import Navbar from "./components/Navbar.js";
 import Banner from "./components/Home/Banner.js";
 import Display from "./components/Home/Display.js";
 import Footer from "./components/Footer.js";
+import Home from "./components/Home/Home.js";
+
 function App() {
   return (
     <>
       <Navbar />
-      <Banner />
+      <Home />
+      {/* <Banner />
       <Display value={"Featured Product"} />
-      <Display value={"Recommended Products"} />
+      <Display value={"Recommended Products"} /> */}
       <Footer />
     </>
   );

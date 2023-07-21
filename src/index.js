@@ -9,8 +9,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      {/* <App></App> */}
-      <Shop></Shop>
+      <App></App>
+      {/* <Shop></Shop> */}
     </BrowserRouter>
   </React.StrictMode>
 );
