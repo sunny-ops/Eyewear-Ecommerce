@@ -108,7 +108,7 @@ function Products() {
         {glasses.map((v) => {
           return (
             <div className="product-display" role="presentation" key={v.id}>
-              <div className="product-display-img">
+              <div className="product-display-img-products">
                 <img
                   alt=""
                   className="product-card-img is-img-loaded"
