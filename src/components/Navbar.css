@@ -21,11 +21,13 @@ html {
   background: #f9f9f9;
 }
 
-/* .navbar li {
-  padding: 10px 15px !important;
-  font-size: 1.4rem;
-} */
+.navbar .active {
+  background: #f2f2f2;
+}
 
+.navbar .default {
+  background: transparent;
+}
 .navbar .nav-link {
   padding: 10px 15px !important;
   font-size: 1.4rem;
@@ -33,7 +35,7 @@ html {
 
 .navbar .nav-item:hover {
   cursor: pointer;
-  background: #f2f2f2;
+  /* background: #f2f2f2; */
 }
 
 .searchbar-icon {
