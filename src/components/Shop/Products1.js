@@ -122,7 +122,10 @@ function Products1() {
       name: "Burnikk",
       category: "Sexbomb",
       price: 67.0,
-      style: {},
+      style: {
+        backgroundImage:
+          "url(https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2F7l3FMZqY8JdfssalDgx2?alt=media&token=be15689c-e12c-4829-9d78-32395ef1e3f7)",
+      },
     },
     {
       id: 2,
@@ -228,7 +231,14 @@ function Products1() {
     console.log("onMouseEnter", id);
     const list = glasses.map((v) => {
       if (v.id === id) {
-        return { ...v, style: { height: "60px" } };
+        return {
+          ...v,
+          style: {
+            backgroundImage: `url(${v.imgURL})`,
+            height: "60px",
+            backgroundSize: "80%",
+          },
+        };
       }
       return v;
     });
@@ -238,10 +248,13 @@ function Products1() {
     console.log("onMouseEnter", id);
     const list = glasses.map((v) => {
       if (v.id === id) {
-        delete v.style;
+        // delete v.style;
         // console.log(delete v.style);  //true
         console.log(v);
-        // return {...v,style:{height:'100px'}}
+        return {
+          ...v,
+          style: { backgroundImage: `url(${v.imgURL})`, height: "100px" },
+        };
       }
       return v;
     });
@@ -265,14 +278,14 @@ function Products1() {
             >
               <div
                 className="product-display-img-products"
-                style={v.style ? v.style : {}}
+                // style={v.style ? v.style : {}}
+                style={v.style}
               >
-                <img
+                {/* <img
                   alt=""
                   className="product-card-img is-img-loaded"
                   src={v.imgURL}
-                  // style={v.style ? { height: "80%" } : {}}
-                />
+                /> */}
               </div>
               <div className="product-display-details">
                 <h5 className="text-center">{v.name}</h5>

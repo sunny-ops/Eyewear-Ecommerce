@@ -16,6 +16,9 @@
   background: #f1f1f1;
   position: relative;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .product-card-brand {
