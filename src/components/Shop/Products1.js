@@ -250,7 +250,7 @@ function Products1() {
       if (v.id === id) {
         // delete v.style;
         // console.log(delete v.style);  //true
-        console.log(v);
+        // console.log(v);
         return {
           ...v,
           style: { backgroundImage: `url(${v.imgURL})`, height: "100px" },
@@ -267,8 +267,11 @@ function Products1() {
           return (
             <div
               className="product-display"
-              onMouseEnter={() => {
-                hoverFn(v.id);
+              onMouseEnter={(e) => {
+                console.log(e.target.style);
+                e.target.style.height = "60px";
+                e.target.style.backgroundSize = "80%";
+                // hoverFn(v.id);
               }}
               onMouseLeave={() => {
                 leaveFn(v.id);
