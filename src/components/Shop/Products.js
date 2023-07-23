@@ -145,20 +145,20 @@ function Products() {
       price: 250,
       style: {
         backgroundImage:
-          "https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FYVPdTsyxJybMCsdKpXhq?alt=media&token=23d7673c-a0bf-4dcb-89f1-8482446b56be",
+          "url(https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FYVPdTsyxJybMCsdKpXhq?alt=media&token=23d7673c-a0bf-4dcb-89f1-8482446b56be)",
       },
       isHovered: false,
     },
     {
       id: 11,
       imgURL:
-        "https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FALz5M4DI7MF7CdZrq3gS?alt=media&token=8d33ea34-2de3-466b-9b3d-27015e9cd540",
+        "url(https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FALz5M4DI7MF7CdZrq3gS?alt=media&token=8d33ea34-2de3-466b-9b3d-27015e9cd540)",
       name: "Kibal Batal",
       category: "Kibal Black",
       price: 174,
       style: {
         backgroundImage:
-          "https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FALz5M4DI7MF7CdZrq3gS?alt=media&token=8d33ea34-2de3-466b-9b3d-27015e9cd540",
+          "url(https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FALz5M4DI7MF7CdZrq3gS?alt=media&token=8d33ea34-2de3-466b-9b3d-27015e9cd540)",
       },
       isHovered: false,
     },
@@ -201,7 +201,11 @@ function Products() {
               className="product-display"
               role="presentation"
               key={v.id}
-              style={{ position: "relative" }}
+              style={{
+                position: "relative",
+                height: "232px",
+                overflow: "hidden",
+              }}
               onMouseEnter={() => {
                 hoverFn(v, v.id);
               }}
@@ -224,7 +228,10 @@ function Products() {
               <button
                 class="product-card-button button-small button button-block "
                 type="button"
-                style={{ opacity: v.isHovered ? "1" : "0" }}
+                style={{
+                  // opacity: v.isHovered ? "1" : "0",
+                  bottom: v.isHovered ? "0" : "-44px",
+                }}
               >
                 Add to basket
               </button>
