@@ -158,7 +158,7 @@ function Products() {
       ...glasses[id],
       style: {
         backgroundImage: `url(${v.imgURL})`,
-        height: "60px",
+        height: "56px",
         backgroundSize: "80%",
       },
     };
@@ -187,6 +187,7 @@ function Products() {
               className="product-display"
               role="presentation"
               key={v.id}
+              style={{ position: "relative" }}
               onMouseEnter={() => {
                 hoverFn(v, v.id);
               }}
@@ -206,6 +207,12 @@ function Products() {
                 </p>
                 <h4 className="product-price">${v.price}.00</h4>
               </div>
+              <button
+                class="product-card-button button-small button button-block "
+                type="button"
+              >
+                Add to basket
+              </button>
             </div>
           );
         })}
