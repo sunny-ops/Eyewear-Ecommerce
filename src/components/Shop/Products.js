@@ -17,6 +17,7 @@ function Products() {
         backgroundImage:
           "url(https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2F7l3FMZqY8JdfssalDgx2?alt=media&token=be15689c-e12c-4829-9d78-32395ef1e3f7)",
       },
+      isHovered: false,
     },
     {
       id: 1,
@@ -29,6 +30,7 @@ function Products() {
         backgroundImage:
           "url(https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FALz5M4DI7MF7CdZrq3gS?alt=media&token=8d33ea34-2de3-466b-9b3d-27015e9cd540)",
       },
+      isHovered: false,
     },
     {
       id: 2,
@@ -41,6 +43,7 @@ function Products() {
         backgroundImage:
           "url(https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FLIu8tS4yHSU28Xi8BXCj?alt=media&token=31e796ad-dbd6-4e4f-a8a9-192f5158684a)",
       },
+      isHovered: false,
     },
     {
       id: 3,
@@ -53,6 +56,7 @@ function Products() {
         backgroundImage:
           "url(https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FYVPdTsyxJybMCsdKpXhq?alt=media&token=23d7673c-a0bf-4dcb-89f1-8482446b56be)",
       },
+      isHovered: false,
     },
     {
       id: 4,
@@ -65,6 +69,7 @@ function Products() {
         backgroundImage:
           "url(https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FYZ7LM3vZjWbIIJH2tgEb?alt=media&token=5e722063-a792-4502-9f6e-c3df1581aa9c)",
       },
+      isHovered: false,
     },
     {
       id: 5,
@@ -77,6 +82,7 @@ function Products() {
         backgroundImage:
           "url(https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FbS1hHdO7NvbR1yN5ZPlR?alt=media&token=809a3249-f83d-4aec-b134-34a65ce2ce10)",
       },
+      isHovered: false,
     },
     {
       id: 6,
@@ -89,6 +95,7 @@ function Products() {
         backgroundImage:
           "url(https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FYZ7LM3vZjWbIIJH2tgEb?alt=media&token=5e722063-a792-4502-9f6e-c3df1581aa9c)",
       },
+      isHovered: false,
     },
     {
       id: 7,
@@ -101,6 +108,7 @@ function Products() {
         backgroundImage:
           "url(https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FaubOenOJu42CNp4zXTLX?alt=media&token=1d5fd281-b9cc-499b-94a5-225273b1eabc)",
       },
+      isHovered: false,
     },
     {
       id: 8,
@@ -113,6 +121,7 @@ function Products() {
         backgroundImage:
           "url(https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2F7l3FMZqY8JdfssalDgx2?alt=media&token=be15689c-e12c-4829-9d78-32395ef1e3f7)",
       },
+      isHovered: false,
     },
     {
       id: 9,
@@ -125,6 +134,7 @@ function Products() {
         backgroundImage:
           "url(https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FYjDAQSbkSZlartelhFyV?alt=media&token=9b0bdd5e-eb91-4d99-a52f-298c12879fa3)",
       },
+      isHovered: false,
     },
     {
       id: 10,
@@ -137,6 +147,7 @@ function Products() {
         backgroundImage:
           "https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FYVPdTsyxJybMCsdKpXhq?alt=media&token=23d7673c-a0bf-4dcb-89f1-8482446b56be",
       },
+      isHovered: false,
     },
     {
       id: 11,
@@ -149,6 +160,7 @@ function Products() {
         backgroundImage:
           "https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FALz5M4DI7MF7CdZrq3gS?alt=media&token=8d33ea34-2de3-466b-9b3d-27015e9cd540",
       },
+      isHovered: false,
     },
   ]);
 
@@ -158,9 +170,10 @@ function Products() {
       ...glasses[id],
       style: {
         backgroundImage: `url(${v.imgURL})`,
-        height: "56px",
+        height: "60px",
         backgroundSize: "80%",
       },
+      isHovered: true,
     };
     setGlasses(newGlasses);
   };
@@ -174,6 +187,7 @@ function Products() {
         height: "100px",
         backgroundSize: "100%",
       },
+      isHovered: false,
     };
     setGlasses(newGlasses);
   };
@@ -210,6 +224,7 @@ function Products() {
               <button
                 class="product-card-button button-small button button-block "
                 type="button"
+                style={{ opacity: v.isHovered ? "1" : "0" }}
               >
                 Add to basket
               </button>
