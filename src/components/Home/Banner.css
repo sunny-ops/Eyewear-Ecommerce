@@ -34,7 +34,7 @@ p {
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  padding: 5rem !important;
+  padding: 10rem 5rem !important;
   flex-basis: 50%;
 }
 
