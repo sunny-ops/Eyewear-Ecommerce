@@ -154,7 +154,7 @@ function ProductInfo() {
             </div>
           </div>
         </div>
-        <Display margin="0 0"></Display>
+        <Display value="Recommended" margin="0 0"></Display>
       </div>
     </div>
   );
