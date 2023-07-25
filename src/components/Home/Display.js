@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./Display.css";
 import data from "../../data/data";
+import { Link } from "react-router-dom";
 
 function Display(props) {
   const glasses = [
@@ -60,17 +61,19 @@ function Display(props) {
         {glasses.map((v) => {
           return (
             <div className="product-display" role="presentation" key={v.id}>
-              <div className="product-display-img">
-                <img
-                  alt=""
-                  className="product-card-img is-img-loaded"
-                  src={v.imgURL}
-                />
-              </div>
-              <div className="product-display-details">
-                <h2>{v.name}</h2>
-                <p className="text-subtle text-italic">{v.category}</p>
-              </div>
+              <Link to={`/product/${v.id}`}>
+                <div className="product-display-img">
+                  <img
+                    alt=""
+                    className="product-card-img is-img-loaded"
+                    src={v.imgURL}
+                  />
+                </div>
+                <div className="product-display-details">
+                  <h2>{v.name}</h2>
+                  <p className="text-subtle text-italic">{v.category}</p>
+                </div>
+              </Link>
             </div>
           );
         })}
