@@ -1,4 +1,5 @@
 .prduct-view {
+  width: 70%;
   margin-left: 100px;
   padding-left: 50px;
   .button-link {
@@ -9,6 +10,7 @@
     display: inline-flex;
     background: #fff;
     border: 1px solid #e1e1e1;
+    margin-bottom: 150px;
     .product-modal-image-collection {
       width: 150px;
       height: inherit;

@@ -9,6 +9,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+import Display from "../Home/Display";
 
 function ProductInfo() {
   const navigate = useNavigate();
@@ -107,7 +108,8 @@ function ProductInfo() {
                   id="demo-simple-select-label"
                   style={{ fontSize: "1.5rem" }}
                 >
-                  -Select Size-
+                  size
+                  {/* -Select Size- */}
                 </InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
@@ -152,6 +154,9 @@ function ProductInfo() {
             </div>
           </div>
         </div>
+        <Display
+          style={{ margin: "0 0 !important", paddingRight: "100px" }}
+        ></Display>
       </div>
     </div>
   );
