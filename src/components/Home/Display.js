@@ -52,7 +52,7 @@ function Display(props) {
   ];
   // console.log(data[0]);
   return (
-    <div className="display">
+    <div className="display" style={{ margin: props.margin }}>
       <div className="display-header">
         <h1 style={{ lineHeight: "3" }}>{props.value}</h1>
         <a href="/featured">See All</a>

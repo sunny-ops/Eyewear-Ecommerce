@@ -6,8 +6,8 @@ function Home() {
   return (
     <>
       <Banner />
-      <Display value={"Featured Product"} />
-      <Display value={"Recommended Products"} />
+      <Display value="Featured Product" margin="10rem 15rem 5rem" />
+      <Display value="Recommended Products" margin="10rem 15rem 5rem" />
     </>
   );
 }

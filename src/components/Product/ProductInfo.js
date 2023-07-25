@@ -154,9 +154,7 @@ function ProductInfo() {
             </div>
           </div>
         </div>
-        <Display
-          style={{ margin: "0 0 !important", paddingRight: "100px" }}
-        ></Display>
+        <Display margin="0 0"></Display>
       </div>
     </div>
   );
