@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import data from "../../data/data";
 import { useNavigate } from "react-router-dom";
 import "./ProductInfo.scss";
@@ -12,6 +12,11 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 
 function ProductInfo() {
   const navigate = useNavigate();
+  const [age, setAge] = React.useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
 
   return (
     <div style={{ backgroundColor: "#f9f9f9" }}>
@@ -20,6 +25,7 @@ function ProductInfo() {
           onClick={() => {
             navigate("/shop");
           }}
+          className="py-3"
         >
           <h3
             className="button-link d-inline-flex"
@@ -87,14 +93,63 @@ function ProductInfo() {
           </div>
           <div className="product-modal-details">
             <div className="text-subtle mb-3">Sexbomb</div>
-            <h1 className="margin-top-0 mb-3">Burnikk</h1>
-            <div className="mb-3">
+            <h1 className="margin-top-0 mb-5">Burnikk</h1>
+            <div className="mb-5">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
               placeat similique dicta nulla praesentium deserunt. Corporis
               repellendus deleniti dolores eligendi.
             </div>
-            <div className="divider mb-3"></div>
-            <span className="text-subtle mb-3">Lens Width and Frame Size</span>
+            <div className="divider mb-5"></div>
+            <span className="text-subtle mb-5">Lens Width and Frame Size</span>
+            <Box sx={{ minWidth: 120 }} className="mt-3">
+              <FormControl fullWidth>
+                <InputLabel
+                  id="demo-simple-select-label"
+                  style={{ fontSize: "1.5rem" }}
+                >
+                  -Select Size-
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={age}
+                  label="Age"
+                  onChange={handleChange}
+                >
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+            <div className="mt-3 mb-5">
+              <span className="text-subtle">Choose Color</span>
+              <br />
+              <br />
+              <div className="color-chooser">
+                <div
+                  className="color-item"
+                  role="presentation"
+                  style={{ backgroundColor: "rgb(0, 0, 0)" }}
+                ></div>
+                <div
+                  className="color-item"
+                  role="presentation"
+                  style={{ backgroundColor: "rgb(197, 0, 197)" }}
+                ></div>
+                <div
+                  className="color-item"
+                  role="presentation"
+                  style={{ backgroundColor: "rgb(0, 77, 132)" }}
+                ></div>
+              </div>
+            </div>
+            <h1 className="mb-5">$240.00</h1>
+            <div class="product-modal-action">
+              <button class="button button-small " type="button">
+                Add To Basket
+              </button>
+            </div>
           </div>
         </div>
       </div>
