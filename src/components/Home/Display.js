@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./Display.css";
+import data from "../../data/data";
 
 function Display(props) {
   const glasses = [
@@ -48,6 +49,7 @@ function Display(props) {
       category: "Sexbomb",
     },
   ];
+  // console.log(data[0]);
   return (
     <div className="display">
       <div className="display-header">

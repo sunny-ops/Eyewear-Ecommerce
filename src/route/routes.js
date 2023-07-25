@@ -6,6 +6,7 @@ const routes = [
   { path: "/", element: <Navigate to="/home" /> },
   { path: "/home", element: <Home /> },
   { path: "/shop", element: <Shop /> },
+  // { path: "/product/:id", element: <Product /> },
 ];
 
 export default routes;
