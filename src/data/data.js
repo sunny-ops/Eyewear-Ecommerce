@@ -77,7 +77,15 @@ export default [
     price: 80,
     img: "/assets/glasses_red.jpg",
     size: [28, 36, 42],
-    color: null,
+    color: [
+      "rgb(0, 0, 0)",
+      "rgb(197, 0, 197)",
+      "rgb(132, 3, 9)",
+      "rgb(0, 77, 132)",
+      "rgb(117, 54, 0)",
+      "rgb(3, 215, 252)",
+      "rgb(12, 228, 26)",
+    ],
   },
   {
     id: 6,

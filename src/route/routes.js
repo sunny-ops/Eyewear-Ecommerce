@@ -8,7 +8,7 @@ const routes = [
   { path: "/", element: <Navigate to="/home" /> },
   { path: "/home", element: <Home /> },
   { path: "/shop", element: <Shop /> },
-  { path: "/product/:id", element: <ProductInfo /> },
+  { path: "/product/:id/:name", element: <ProductInfo /> },
 ];
 
 export default routes;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import data from "../../data/data";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./ProductInfo.scss";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
@@ -10,9 +10,12 @@ import Select from "@mui/material/Select";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Display from "../Home/Display";
+import glasses from "../../data/data";
 
 function ProductInfo() {
   const navigate = useNavigate();
+  const params = useParams();
+  const { id, name } = useParams();
   const [age, setAge] = React.useState("");
 
   const handleChange = (event) => {
@@ -61,7 +64,7 @@ function ProductInfo() {
               <img
                 alt=""
                 className="product-modal-image-collection-img is-img-loaded"
-                src="https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2F7l3FMZqY8JdfssalDgx2?alt=media&amp;token=be15689c-e12c-4829-9d78-32395ef1e3f7"
+                src={process.env.PUBLIC_URL + glasses[id - 1].img}
               />
             </div>
             <div
@@ -71,7 +74,7 @@ function ProductInfo() {
               <img
                 alt=""
                 className="product-modal-image-collection-img is-img-loaded"
-                src="https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FVoHKtd0erYsCIsVv9lDz?alt=media&amp;token=49ca485e-f76b-4ff3-a406-356a58ec30df"
+                src={process.env.PUBLIC_URL + glasses[2].img}
               />
             </div>
             <div
@@ -81,7 +84,7 @@ function ProductInfo() {
               <img
                 alt=""
                 className="product-modal-image-collection-img is-img-loaded"
-                src="https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FT913J5mmk503vnIrmlUb?alt=media&amp;token=99a49867-2afb-4fcc-abf4-8da7afde0f3b"
+                src={process.env.PUBLIC_URL + glasses[3].img}
               />
             </div>
           </div>
@@ -89,17 +92,14 @@ function ProductInfo() {
             <img
               alt="Burnikk"
               className="product-modal-image is-img-loaded"
-              src="https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2F7l3FMZqY8JdfssalDgx2?alt=media&amp;token=be15689c-e12c-4829-9d78-32395ef1e3f7"
+              src={process.env.PUBLIC_URL + glasses[id - 1].img}
+              //   src="https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2F7l3FMZqY8JdfssalDgx2?alt=media&amp;token=be15689c-e12c-4829-9d78-32395ef1e3f7"
             />
           </div>
           <div className="product-modal-details">
-            <div className="text-subtle mb-3">Sexbomb</div>
-            <h1 className="margin-top-0 mb-5">Burnikk</h1>
-            <div className="mb-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              placeat similique dicta nulla praesentium deserunt. Corporis
-              repellendus deleniti dolores eligendi.
-            </div>
+            <div className="text-subtle mb-3">{glasses[id - 1].brand}</div>
+            <h1 className="margin-top-0 mb-5">{glasses[id - 1].name}</h1>
+            <div className="mb-5">{glasses[id - 1].desc}</div>
             <div className="divider mb-5"></div>
             <span className="text-subtle mb-5">Lens Width and Frame Size</span>
             <Box sx={{ minWidth: 120 }} className="mt-3">
@@ -118,9 +118,9 @@ function ProductInfo() {
                   label="Age"
                   onChange={handleChange}
                 >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value={10}>{glasses[id - 1].size[0]} mm</MenuItem>
+                  <MenuItem value={20}>{glasses[id - 1].size[1]} mm</MenuItem>
+                  <MenuItem value={30}>{glasses[id - 1].size[2]} mm</MenuItem>
                 </Select>
               </FormControl>
             </Box>
@@ -132,21 +132,41 @@ function ProductInfo() {
                 <div
                   className="color-item"
                   role="presentation"
-                  style={{ backgroundColor: "rgb(0, 0, 0)" }}
+                  style={{ backgroundColor: `${glasses[id - 1].color[0]}` }}
                 ></div>
                 <div
                   className="color-item"
                   role="presentation"
-                  style={{ backgroundColor: "rgb(197, 0, 197)" }}
+                  style={{ backgroundColor: `${glasses[id - 1].color[1]}` }}
                 ></div>
                 <div
                   className="color-item"
                   role="presentation"
-                  style={{ backgroundColor: "rgb(0, 77, 132)" }}
+                  style={{ backgroundColor: `${glasses[id - 1].color[2]}` }}
+                ></div>
+                <div
+                  className="color-item"
+                  role="presentation"
+                  style={{ backgroundColor: `${glasses[id - 1].color[3]}` }}
+                ></div>
+                <div
+                  className="color-item"
+                  role="presentation"
+                  style={{ backgroundColor: `${glasses[id - 1].color[4]}` }}
+                ></div>
+                <div
+                  className="color-item"
+                  role="presentation"
+                  style={{ backgroundColor: `${glasses[id - 1].color[5]}` }}
+                ></div>
+                <div
+                  className="color-item"
+                  role="presentation"
+                  style={{ backgroundColor: `${glasses[id - 1].color[6]}` }}
                 ></div>
               </div>
             </div>
-            <h1 className="mb-5">$240.00</h1>
+            <h1 className="mb-5">${glasses[id - 1].price}.00</h1>
             <div className="product-modal-action">
               <button className="button button-small " type="button">
                 Add To Basket

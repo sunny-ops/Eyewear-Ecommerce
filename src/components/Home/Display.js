@@ -63,7 +63,7 @@ function Display(props) {
         {glasses.map((v) => {
           return (
             <div className="product-display" role="presentation" key={v.id}>
-              <Link to={`/product/${v.id}`}>
+              <Link to={`/product/${v.id}/${v.name}`}>
                 <div className="product-display-img">
                   <img
                     alt=""
