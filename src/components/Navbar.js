@@ -64,10 +64,30 @@ function Navbar() {
                 </div>
               </li>
               <li className="nav-item">
-                <a className="nav-link disabled">Featured</a>
+                {/* <a className="nav-link disabled">Featured</a> */}
+                <div>
+                  <NavLink
+                    className={({ isActive }) => {
+                      return isActive ? "active nav-link" : "default nav-link";
+                    }}
+                    to="/featured"
+                  >
+                    Featured
+                  </NavLink>
+                </div>
               </li>
               <li className="nav-item">
-                <a className="nav-link disabled">Recommended</a>
+                {/* <a className="nav-link disabled">Recommended</a> */}
+                <div>
+                  <NavLink
+                    className={({ isActive }) => {
+                      return isActive ? "active nav-link" : "default nav-link";
+                    }}
+                    to="/recommended"
+                  >
+                    Recommended
+                  </NavLink>
+                </div>
               </li>
             </ul>
             <div

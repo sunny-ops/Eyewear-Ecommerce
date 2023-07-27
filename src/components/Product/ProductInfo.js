@@ -93,7 +93,6 @@ function ProductInfo() {
               alt="Burnikk"
               className="product-modal-image is-img-loaded"
               src={process.env.PUBLIC_URL + glasses[id - 1].img}
-              //   src="https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2F7l3FMZqY8JdfssalDgx2?alt=media&amp;token=be15689c-e12c-4829-9d78-32395ef1e3f7"
             />
           </div>
           <div className="product-modal-details">
