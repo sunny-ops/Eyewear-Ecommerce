@@ -226,7 +226,7 @@ function Products() {
                 <h4 className="product-price">${v.price}.00</h4>
               </div>
               <button
-                class="product-card-button button-small button button-block "
+                className="product-card-button button-small button button-block "
                 type="button"
                 style={{
                   // opacity: v.isHovered ? "1" : "0",

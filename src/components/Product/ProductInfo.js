@@ -35,7 +35,7 @@ function ProductInfo() {
             <span
               role="img"
               aria-label="arrow-left"
-              class="anticon anticon-arrow-left"
+              className="anticon anticon-arrow-left"
             >
               <svg
                 viewBox="64 64 896 896"
@@ -55,7 +55,7 @@ function ProductInfo() {
         <div className="product-modal">
           <div className="product-modal-image-collection">
             <div
-              class="product-modal-image-collection-wrapper"
+              className="product-modal-image-collection-wrapper"
               role="presentation"
             >
               <img
@@ -88,7 +88,7 @@ function ProductInfo() {
           <div className="product-modal-image-wrapper">
             <img
               alt="Burnikk"
-              class="product-modal-image is-img-loaded"
+              className="product-modal-image is-img-loaded"
               src="https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2F7l3FMZqY8JdfssalDgx2?alt=media&amp;token=be15689c-e12c-4829-9d78-32395ef1e3f7"
             />
           </div>
@@ -147,8 +147,8 @@ function ProductInfo() {
               </div>
             </div>
             <h1 className="mb-5">$240.00</h1>
-            <div class="product-modal-action">
-              <button class="button button-small " type="button">
+            <div className="product-modal-action">
+              <button className="button button-small " type="button">
                 Add To Basket
               </button>
             </div>

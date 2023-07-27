@@ -52,6 +52,7 @@ function Display(props) {
   // ];
 
   const glasses = data.slice(0, 6);
+
   return (
     <div className="display" style={{ margin: props.margin }}>
       <div className="display-header">
@@ -67,7 +68,8 @@ function Display(props) {
                   <img
                     alt=""
                     className="product-card-img is-img-loaded"
-                    src={v.imgURL}
+                    src={process.env.PUBLIC_URL + v.img}
+                    // src={process.env.PUBLIC_URL + "/logo192.png"}
                   />
                 </div>
                 <div className="product-display-details">
