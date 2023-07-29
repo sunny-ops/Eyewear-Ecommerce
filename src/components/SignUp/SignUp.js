@@ -1,6 +1,26 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { signupFn } from "../../store/userInfo";
+
 import "./SignUp.css";
 function SignUp(props) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const myEmail = useRef();
+  const myName = useRef();
+  const myPwd = useRef();
+  const signupBtn = (event) => {
+    event.preventDefault();
+    const name = myName.current.value;
+    const email = myEmail.current.value;
+    const pwd = myPwd.current.value;
+    const newUser = { username: name, email: email, password: pwd };
+    console.log(newUser);
+    alert("Sign in successfully");
+    dispatch(signupFn(newUser));
+    navigate("/home");
+  };
   return (
     <>
       <main className="content">
@@ -11,11 +31,12 @@ function SignUp(props) {
               <form action="#">
                 <div className="auth-field">
                   <div className="input-group">
-                    <label className="label-input" for="fullname">
+                    <label className="label-input" htmlFor="fullname">
                       * Full Name
                     </label>
                     <input
                       type="text"
+                      ref={myName}
                       id="fullname"
                       className="input-form undefined"
                       name="fullname"
@@ -26,11 +47,12 @@ function SignUp(props) {
                 </div>
                 <div className="auth-field">
                   <div className="input-group">
-                    <label className="label-input" for="email">
+                    <label className="label-input" htmlFor="email">
                       * Email
                     </label>
                     <input
                       type="email"
+                      ref={myEmail}
                       id="email"
                       className="input-form undefined"
                       name="email"
@@ -40,11 +62,12 @@ function SignUp(props) {
                 </div>
                 <div className="auth-field">
                   <div className="input-group">
-                    <label className="label-input" for="password">
+                    <label className="label-input" htmlFor="password">
                       * Password
                     </label>
                     <input
                       type="password"
+                      ref={myPwd}
                       id="password"
                       className="input-form undefined"
                       name="password"
@@ -56,8 +79,9 @@ function SignUp(props) {
                 <div className="auth-field auth-action auth-action-signup justify-content-end">
                   <button
                     className="button auth-button"
-                    type="submit"
+                    // type="submit"
                     style={{ fontSize: "1.6rem" }}
+                    onClick={signupBtn}
                   >
                     Sign Up&nbsp;
                     <span

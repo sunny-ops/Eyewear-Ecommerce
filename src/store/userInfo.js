@@ -11,7 +11,8 @@ const userInfoStore = createSlice({
   initialState,
   reducers: {
     signupFn: (state, action) => {
-      state.userInfo.push(action);
+      console.log(action);
+      state.userInfo.push(action.payload);
       console.log("userInfo.js - userInfo", state.userInfo);
     },
   },
