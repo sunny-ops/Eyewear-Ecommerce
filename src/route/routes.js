@@ -5,6 +5,8 @@ import Shop from "../components/Shop/Shop";
 import ProductInfo from "../components/Product/ProductInfo";
 import Recommended from "../components/Recommended/Recommened";
 import Featured from "../components/Featured/Featured";
+import SignIn from "../components/SignIn/SignIn";
+import SignUp from "../components/SignUp/SignUp";
 
 const routes = [
   { path: "/", element: <Navigate to="/home" /> },
@@ -12,6 +14,8 @@ const routes = [
   { path: "/shop", element: <Shop /> },
   { path: "/featured", element: <Featured /> },
   { path: "/recommended", element: <Recommended /> },
+  { path: "/signin", element: <SignIn /> },
+  { path: "/signup", element: <SignUp /> },
   { path: "/product/:id/:name", element: <ProductInfo /> },
 ];
 
