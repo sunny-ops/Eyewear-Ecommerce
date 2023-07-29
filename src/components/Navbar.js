@@ -5,9 +5,18 @@ import "./Navbar.css";
 // import "./Shop/NavbarShop.css";
 import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutFn } from "../store/isLogin";
 
 function Navbar() {
   const location = useLocation();
+  const loginState = useSelector((state) => state.isLoginStore.isLogin);
+  const dispatch = useDispatch();
+  console.log(loginState);
+
+  const logoutBtn = () => {
+    dispatch(logoutFn());
+  };
   return (
     <div className="navbar-container">
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -171,7 +180,14 @@ function Navbar() {
                 </li>
                 <li className="nav-item">
                   <div className="nav-link button button-muted" href="#">
-                    <NavLink to="/signin">Sign&nbsp;In</NavLink>
+                    {/* <NavLink to="/signin">Sign&nbsp;In</NavLink> */}
+                    {loginState ? (
+                      <NavLink to="/home" onClick={logoutBtn}>
+                        Log&nbsp;Out
+                      </NavLink>
+                    ) : (
+                      <NavLink to="/signin">Sign&nbsp;In</NavLink>
+                    )}
                   </div>
                 </li>
               </ul>
