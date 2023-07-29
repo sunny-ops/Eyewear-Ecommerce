@@ -4,14 +4,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./Navbar.css";
 // import "./Shop/NavbarShop.css";
 import { useLocation } from "react-router-dom";
-import {
-  Link,
-  Navigate,
-  Route,
-  Routes,
-  useRoutes,
-  NavLink,
-} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   const location = useLocation();

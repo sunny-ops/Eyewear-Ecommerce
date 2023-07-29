@@ -89,13 +89,13 @@ function SignUp(props) {
             </div>
             <div className="auth-provider">
               <button
-                className="button auth-provider-button provider-facebook justify-content-around"
+                className="button auth-provider-button provider-facebook justify-content-start"
                 type="button"
               >
                 <span
                   role="img"
                   aria-label="facebook"
-                  className="anticon anticon-facebook"
+                  className="anticon anticon-facebook mx-3 me-5"
                 >
                   <svg
                     viewBox="64 64 896 896"
@@ -112,13 +112,13 @@ function SignUp(props) {
                 Continue with Facebook
               </button>
               <button
-                className="button auth-provider-button provider-google justify-content-around"
+                className="button auth-provider-button provider-google justify-content-start"
                 type="button"
               >
                 <span
                   role="img"
                   aria-label="google"
-                  className="anticon anticon-google"
+                  className="anticon anticon-google mx-3 me-5"
                 >
                   <svg
                     viewBox="64 64 896 896"
@@ -135,13 +135,13 @@ function SignUp(props) {
                 Continue with Google
               </button>
               <button
-                className="button auth-provider-button provider-github justify-content-around"
+                className="button auth-provider-button provider-github justify-content-start"
                 type="button"
               >
                 <span
                   role="img"
                   aria-label="github"
-                  className="anticon anticon-github"
+                  className="anticon anticon-github mx-3 me-5"
                 >
                   <svg
                     viewBox="64 64 896 896"
