@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch, useSelector } from "react-redux";
+import { loginFn, logoutFn } from "../../store/isLogin";
 const userInfo = [
   { username: "zhangsan", password: "123456" },
   { username: "lisi", password: "123456" },
@@ -10,6 +11,7 @@ function SignIn(props) {
   const navigate = useNavigate();
   const myName = useRef();
   const myPwd = useRef();
+  const dispatch = useDispatch();
   let isLogin = false;
   const loginBtn = (event) => {
     event.preventDefault();
@@ -24,6 +26,7 @@ function SignIn(props) {
     console.log("isLogin", isLogin);
     if (isLogin) {
       alert("Sign in successfully");
+      dispatch(loginFn());
       navigate("/home");
     } else {
       alert("Username and Password dismatch");
