@@ -2,16 +2,17 @@ import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginFn, logoutFn } from "../../store/isLogin";
-const userInfo = [
-  { username: "Joe", email: "joe@gmail.com", password: "123456" },
-  { username: "Allen", email: "allen@gmail.com", password: "123456" },
-];
+// const userInfo = [
+//   { username: "Joe", email: "joe@gmail.com", password: "123456" },
+//   { username: "Allen", email: "allen@gmail.com", password: "123456" },
+// ];
 
 function SignIn(props) {
   const navigate = useNavigate();
   const myName = useRef();
   const myPwd = useRef();
   const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.userInfoStore.userInfo);
   let isLogin = false;
   const loginBtn = (event) => {
     event.preventDefault();
