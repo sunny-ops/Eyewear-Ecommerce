@@ -4,7 +4,7 @@ function SignUp(props) {
   return (
     <>
       <main className="content">
-        <div classNameName="auth-content">
+        <div className="auth-content">
           <div className="auth undefined">
             <div className="auth-main">
               <h3>Sign up to Salinaka</h3>
@@ -20,7 +20,6 @@ function SignUp(props) {
                       className="input-form undefined"
                       name="fullname"
                       placeholder="John Doe"
-                      value=""
                       //   style="text-transform: capitalize"
                     />
                   </div>
@@ -36,7 +35,6 @@ function SignUp(props) {
                       className="input-form undefined"
                       name="email"
                       placeholder="test@example.com"
-                      value=""
                     />
                   </div>
                 </div>
@@ -51,7 +49,6 @@ function SignUp(props) {
                       className="input-form undefined"
                       name="password"
                       placeholder="Your Password"
-                      value=""
                     />
                   </div>
                 </div>
@@ -95,7 +92,7 @@ function SignUp(props) {
                 <span
                   role="img"
                   aria-label="facebook"
-                  className="anticon anticon-facebook mx-3 me-5"
+                  className="anticon anticon-facebook mx-3"
                 >
                   <svg
                     viewBox="64 64 896 896"
@@ -118,7 +115,7 @@ function SignUp(props) {
                 <span
                   role="img"
                   aria-label="google"
-                  className="anticon anticon-google mx-3 me-5"
+                  className="anticon anticon-google mx-3"
                 >
                   <svg
                     viewBox="64 64 896 896"
@@ -141,7 +138,7 @@ function SignUp(props) {
                 <span
                   role="img"
                   aria-label="github"
-                  className="anticon anticon-github mx-3 me-5"
+                  className="anticon anticon-github mx-3"
                 >
                   <svg
                     viewBox="64 64 896 896"

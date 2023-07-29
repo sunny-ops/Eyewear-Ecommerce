@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginFn, logoutFn } from "../../store/isLogin";
 const userInfo = [
-  { username: "zhangsan", password: "123456" },
-  { username: "lisi", password: "123456" },
+  { username: "Joe", email: "joe@gmail.com", password: "123456" },
+  { username: "Allen", email: "allen@gmail.com", password: "123456" },
 ];
 
 function SignIn(props) {
@@ -17,8 +17,8 @@ function SignIn(props) {
     event.preventDefault();
     const name = myName.current.value;
     const pwd = myPwd.current.value;
-    for (let { username, password } of userInfo) {
-      if (username === name && password === pwd) {
+    for (let { email, password } of userInfo) {
+      if (email === name && password === pwd) {
         isLogin = true;
         break;
       }

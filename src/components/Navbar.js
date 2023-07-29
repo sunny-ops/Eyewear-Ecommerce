@@ -12,7 +12,7 @@ function Navbar() {
   const location = useLocation();
   const loginState = useSelector((state) => state.isLoginStore.isLogin);
   const dispatch = useDispatch();
-  console.log(loginState);
+  console.log("Navbar, isLogin", loginState);
 
   const logoutBtn = () => {
     dispatch(logoutFn());
