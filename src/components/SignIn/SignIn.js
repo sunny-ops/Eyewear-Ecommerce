@@ -1,41 +1,65 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+
+const userInfo = [
+  { username: "zhangsan", password: "123456" },
+  { username: "lisi", password: "123456" },
+];
 
 function SignIn(props) {
+  const navigate = useNavigate();
+  const myName = useRef();
+  const myPwd = useRef();
+  let isLogin = false;
+  const loginBtn = (event) => {
+    event.preventDefault();
+    const name = myName.current.value;
+    const pwd = myPwd.current.value;
+    for (let { username, password } of userInfo) {
+      if (username === name && password === pwd) {
+        isLogin = true;
+        break;
+      }
+    }
+    console.log("isLogin", isLogin);
+    if (isLogin) {
+      alert("Sign in successfully");
+      navigate("/home");
+    } else {
+      alert("Username and Password dismatch");
+    }
+  };
   return (
     <>
       <main className="content">
-        <div classNameName="auth-content">
+        <div className="auth-content">
           <div className="auth undefined">
             <div className="auth-main">
               <h3>Sign in to Salinaka</h3>
               <form action="#">
                 <div className="auth-field">
                   <div className="input-group">
-                    <label className="label-input" for="email">
-                      * Email
-                    </label>
+                    <label className="label-input">* Email</label>
                     <input
                       type="email"
+                      ref={myName}
                       id="email"
                       className="input-form undefined"
                       name="email"
                       placeholder="test@example.com"
-                      value=""
                     />
                   </div>
                 </div>
                 <div className="auth-field">
                   <div className="input-group">
-                    <label className="label-input" for="password">
-                      * Password
-                    </label>
+                    <label className="label-input">* Password</label>
                     <input
                       type="password"
+                      ref={myPwd}
                       id="password"
                       className="input-form undefined"
                       name="password"
                       placeholder="Your Password"
-                      value=""
                     />
                   </div>
                 </div>
@@ -43,8 +67,9 @@ function SignIn(props) {
                 <div className="auth-field auth-action auth-action-signup justify-content-end">
                   <button
                     className="button auth-button"
-                    type="submit"
+                    // type="submit"
                     style={{ fontSize: "1.6rem" }}
+                    onClick={loginBtn}
                   >
                     Sign In&nbsp;
                     <span
