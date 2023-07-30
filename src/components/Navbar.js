@@ -7,6 +7,17 @@ import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutFn } from "../store/isLogin";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import Button from "@mui/material/Button";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import MailIcon from "@mui/icons-material/Mail";
 
 function Navbar() {
   const location = useLocation();
@@ -17,6 +28,58 @@ function Navbar() {
   const logoutBtn = () => {
     dispatch(logoutFn());
   };
+
+  // drawer
+  const [state, setState] = React.useState({
+    right: false,
+  });
+
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ right: open });
+  };
+
+  const list = (
+    <Box
+      sx={{ width: 250 }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <List>
+        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {["All mail", "Trash", "Spam"].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
   return (
     <div className="navbar-container">
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -149,24 +212,34 @@ function Navbar() {
 
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-baseline">
                 <li className="me-5">
-                  <span
-                    role="img"
-                    aria-label="shopping"
-                    className="anticon anticon-shopping"
-                    style={{ fontSize: "2.4rem" }}
-                  >
-                    <svg
-                      viewBox="64 64 896 896"
-                      focusable="false"
-                      data-icon="shopping"
-                      width="1em"
-                      height="1em"
-                      fill="currentColor"
-                      aria-hidden="true"
+                  <div>
+                    <span
+                      role="img"
+                      aria-label="shopping"
+                      className="anticon anticon-shopping"
+                      style={{ fontSize: "2.4rem" }}
+                      onClick={toggleDrawer(true)}
                     >
-                      <path d="M832 312H696v-16c0-101.6-82.4-184-184-184s-184 82.4-184 184v16H192c-17.7 0-32 14.3-32 32v536c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V344c0-17.7-14.3-32-32-32zm-432-16c0-61.9 50.1-112 112-112s112 50.1 112 112v16H400v-16zm392 544H232V384h96v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h224v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h96v456z"></path>
-                    </svg>
-                  </span>
+                      <svg
+                        viewBox="64 64 896 896"
+                        focusable="false"
+                        data-icon="shopping"
+                        width="1em"
+                        height="1em"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path d="M832 312H696v-16c0-101.6-82.4-184-184-184s-184 82.4-184 184v16H192c-17.7 0-32 14.3-32 32v536c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V344c0-17.7-14.3-32-32-32zm-432-16c0-61.9 50.1-112 112-112s112 50.1 112 112v16H400v-16zm392 544H232V384h96v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h224v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h96v456z"></path>
+                      </svg>
+                    </span>
+                    <Drawer
+                      anchor="right"
+                      open={state.right}
+                      onClose={toggleDrawer(false)}
+                    >
+                      {list}
+                    </Drawer>
+                  </div>
                 </li>
                 <li className="nav-item ms-5 me-3">
                   <div className="nav-link button" aria-current="page" href="#">
