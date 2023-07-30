@@ -47,11 +47,28 @@ function Navbar() {
 
   const list = (
     <Box
-      sx={{ width: 250 }}
+      // sx={{ width: 250 }}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
+      <div class="basket-header">
+        <h3 class="basket-header-title">
+          My Basket &nbsp;<span>( 1 item)</span>
+        </h3>
+        <span
+          class="basket-toggle button button-border button-border-gray button-small"
+          role="presentation"
+        >
+          Close
+        </span>
+        <button
+          class="basket-clear button button-border button-border-gray button-small"
+          type="button"
+        >
+          <span>Clear Basket</span>
+        </button>
+      </div>
       <List>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
           <ListItem key={text} disablePadding>
@@ -65,18 +82,6 @@ function Navbar() {
         ))}
       </List>
       <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
     </Box>
   );
 
