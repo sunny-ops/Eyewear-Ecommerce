@@ -205,7 +205,7 @@ function Navbar() {
           </div> */}
           {cartState.map((v, i) => {
             return (
-              <div className="basket-item">
+              <div className="basket-item" key={v.id}>
                 <div className="basket-item-control">
                   <button
                     className="button button-border button-border-gray button-small basket-control basket-control-add"
@@ -263,13 +263,13 @@ function Navbar() {
                     <img
                       alt="Burnikk"
                       className="basket-item-img is-img-loaded"
-                      src={process.env.PUBLIC_URL + glasses[i].img}
+                      src={process.env.PUBLIC_URL + glasses[v.id].img}
                     />
                   </div>
                   <div className="basket-item-details">
                     <a href="/product/7l3FMZqY8JdfssalDgx2">
                       <h4 className="underline basket-item-name">
-                        {glasses[i].name}
+                        {glasses[v.id].name}
                       </h4>
                     </a>
                     <div className="basket-item-specs">
@@ -296,7 +296,7 @@ function Navbar() {
                   </div>
                   <div className="basket-item-price">
                     <h4 className="my-0">
-                      {glasses[i].price * cartState[i].cnt}
+                      {glasses[v.id].price * cartState[i].cnt}
                     </h4>
                   </div>
                   <button

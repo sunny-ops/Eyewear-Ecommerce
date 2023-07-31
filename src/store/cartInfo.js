@@ -8,6 +8,7 @@ const cartInfoStore = createSlice({
   initialState,
   reducers: {
     addItemFn: (state, action) => {
+      console.log(action.payload);
       state.cartInfo.push(action.payload);
       console.log("cartInfo.js - cartInfo", state.cartInfo);
     },

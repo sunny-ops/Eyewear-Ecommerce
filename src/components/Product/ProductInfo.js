@@ -11,22 +11,33 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Display from "../Home/Display";
 import glasses from "../../data/data";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemFn } from "../../store/cartInfo";
 
 function ProductInfo() {
   const navigate = useNavigate();
   const params = useParams();
   const { id, name } = useParams();
-  const [age, setAge] = React.useState("");
+  const [age, setAge] = React.useState(0);
   const [selected, setSelected] = React.useState(new Array(7).fill(false));
-
+  const [seletedIdx, setSelectedIdx] = React.useState(0);
+  const dispatch = useDispatch();
   const handleChange = (event) => {
     setAge(event.target.value);
+    console.log(event.target.value);
   };
 
   const selectColor = (index) => {
     let newArr = new Array(7).fill(false);
     newArr[index] = true;
     setSelected(newArr);
+    setSelectedIdx(index);
+  };
+
+  const addToCartBtn = () => {
+    const item = { id: id - 1, cnt: 1, size: age, color: seletedIdx };
+    console.log(item);
+    dispatch(addItemFn(item));
   };
 
   return (
@@ -124,9 +135,9 @@ function ProductInfo() {
                   label="Age"
                   onChange={handleChange}
                 >
-                  <MenuItem value={10}>{glasses[id - 1].size[0]} mm</MenuItem>
-                  <MenuItem value={20}>{glasses[id - 1].size[1]} mm</MenuItem>
-                  <MenuItem value={30}>{glasses[id - 1].size[2]} mm</MenuItem>
+                  <MenuItem value={0}>{glasses[id - 1].size[0]} mm</MenuItem>
+                  <MenuItem value={1}>{glasses[id - 1].size[1]} mm</MenuItem>
+                  <MenuItem value={2}>{glasses[id - 1].size[2]} mm</MenuItem>
                 </Select>
               </FormControl>
             </Box>
@@ -152,7 +163,11 @@ function ProductInfo() {
             </div>
             <h1 className="mb-5">${glasses[id - 1].price}.00</h1>
             <div className="product-modal-action">
-              <button className="button button-small " type="button">
+              <button
+                className="button button-small "
+                type="button"
+                onClick={addToCartBtn}
+              >
                 Add To Basket
               </button>
             </div>
