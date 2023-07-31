@@ -86,3 +86,21 @@ textarea {
   font-size: 1.2rem;
   padding: 1.2rem 1.6rem;
 }
+
+/* cart */
+.is-basket-open .basket {
+  transform: translateX(0);
+}
+
+.basket {
+  width: 60rem;
+  height: 100vh;
+  background: #fff;
+  /* position: fixed;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 60; */
+}

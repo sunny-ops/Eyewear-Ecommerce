@@ -47,12 +47,270 @@ function Navbar() {
 
   const list = (
     <Box
-      // sx={{ width: 250 }}
+      // sx={{ width: 568 }}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
-      <div class="basket-header">
+      <div className="basket">
+        <div className="basket-list">
+          <div className="basket-header">
+            <h3 className="basket-header-title">
+              My Basket &nbsp;<span>( 2 items)</span>
+            </h3>
+            <span
+              className="basket-toggle button button-border button-border-gray button-small"
+              role="presentation"
+            >
+              Close
+            </span>
+            <button
+              className="basket-clear button button-border button-border-gray button-small"
+              type="button"
+            >
+              <span>Clear Basket</span>
+            </button>
+          </div>
+          <div className="basket-item">
+            <div className="basket-item-control">
+              <button
+                className="button button-border button-border-gray button-small basket-control basket-control-add"
+                type="button"
+              >
+                <span
+                  role="img"
+                  aria-label="plus"
+                  className="anticon anticon-plus"
+                  style={{ fontSize: "9px" }}
+                >
+                  <svg
+                    viewBox="64 64 896 896"
+                    focusable="false"
+                    data-icon="plus"
+                    width="1em"
+                    height="1em"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <defs>
+                      <style></style>
+                    </defs>
+                    <path d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"></path>
+                    <path d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"></path>
+                  </svg>
+                </span>
+              </button>
+              <button
+                className="button button-border button-border-gray button-small basket-control basket-control-minus"
+                type="button"
+              >
+                <span
+                  role="img"
+                  aria-label="minus"
+                  className="anticon anticon-minus"
+                  style={{ fontSize: "9px" }}
+                >
+                  <svg
+                    viewBox="64 64 896 896"
+                    focusable="false"
+                    data-icon="minus"
+                    width="1em"
+                    height="1em"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div className="basket-item-wrapper">
+              <div className="basket-item-img-wrapper">
+                <img
+                  alt="Burnikk"
+                  className="basket-item-img is-img-loaded"
+                  src="https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2F7l3FMZqY8JdfssalDgx2?alt=media&amp;token=be15689c-e12c-4829-9d78-32395ef1e3f7"
+                />
+              </div>
+              <div className="basket-item-details">
+                <a href="/product/7l3FMZqY8JdfssalDgx2">
+                  <h4 className="underline basket-item-name">Burnikk</h4>
+                </a>
+                <div className="basket-item-specs">
+                  <div>
+                    <span className="spec-title">Quantity</span>
+                    <h5 className="my-0">2</h5>
+                  </div>
+                  <div>
+                    <span className="spec-title">Size</span>
+                    <h5 className="my-0">36 mm</h5>
+                  </div>
+                  <div>
+                    <span className="spec-title">Color</span>
+                    <div
+                      style={{
+                        backgroundColor: "rgb(0, 0, 0)",
+                        width: "15px",
+                        height: "15px",
+                        borderRadius: "50%",
+                      }}
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div className="basket-item-price">
+                <h4 className="my-0">$480.00</h4>
+              </div>
+              <button
+                className="basket-item-remove button button-border button-border-gray button-small"
+                type="button"
+              >
+                <span
+                  role="img"
+                  aria-label="close"
+                  className="anticon anticon-close"
+                >
+                  <svg
+                    viewBox="64 64 896 896"
+                    focusable="false"
+                    data-icon="close"
+                    width="1em"
+                    height="1em"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+          <div className="basket-item">
+            <div className="basket-item-control">
+              <button
+                className="button button-border button-border-gray button-small basket-control basket-control-add"
+                type="button"
+              >
+                <span
+                  role="img"
+                  aria-label="plus"
+                  className="anticon anticon-plus"
+                  style={{ fontSize: "9px" }}
+                >
+                  <svg
+                    viewBox="64 64 896 896"
+                    focusable="false"
+                    data-icon="plus"
+                    width="1em"
+                    height="1em"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <defs>
+                      <style></style>
+                    </defs>
+                    <path d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"></path>
+                    <path d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"></path>
+                  </svg>
+                </span>
+              </button>
+              <button
+                className="button button-border button-border-gray button-small basket-control basket-control-minus"
+                type="button"
+              >
+                <span
+                  role="img"
+                  aria-label="minus"
+                  className="anticon anticon-minus"
+                  style={{ fontSize: "9px" }}
+                >
+                  <svg
+                    viewBox="64 64 896 896"
+                    focusable="false"
+                    data-icon="minus"
+                    width="1em"
+                    height="1em"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div className="basket-item-wrapper">
+              <div className="basket-item-img-wrapper">
+                <img
+                  alt="Tuluk"
+                  className="basket-item-img is-img-loaded"
+                  src="https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2FJzaakhGgN8w2AU2My470?alt=media&amp;token=92c7e2f7-77b4-416c-b415-5842418c3dc0"
+                />
+              </div>
+              <div className="basket-item-details">
+                <a href="/product/JzaakhGgN8w2AU2My470">
+                  <h4 className="underline basket-item-name">Tuluk</h4>
+                </a>
+                <div className="basket-item-specs">
+                  <div>
+                    <span className="spec-title">Quantity</span>
+                    <h5 className="my-0">2</h5>
+                  </div>
+                  <div>
+                    <span className="spec-title">Size</span>
+                    <h5 className="my-0">28 mm</h5>
+                  </div>
+                  <div>
+                    <span className="spec-title">Color</span>
+                    <div
+                      style={{
+                        backgroundColor: "rgb(0, 0, 0)",
+                        width: "15px",
+                        height: "15px",
+                        borderRadius: "50%",
+                      }}
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div className="basket-item-price">
+                <h4 className="my-0">$284.00</h4>
+              </div>
+              <button
+                className="basket-item-remove button button-border button-border-gray button-small"
+                type="button"
+              >
+                <span
+                  role="img"
+                  aria-label="close"
+                  className="anticon anticon-close"
+                >
+                  <svg
+                    viewBox="64 64 896 896"
+                    focusable="false"
+                    data-icon="close"
+                    width="1em"
+                    height="1em"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="basket-checkout">
+          <div className="basket-total">
+            <p className="basket-total-title">Subtotal Amout:</p>
+            <h2 className="basket-total-amount">$764.00</h2>
+          </div>
+          <button className="basket-checkout-button button" type="button">
+            Check Out
+          </button>
+        </div>
+      </div>
+      {/* <div class="basket-header">
         <h3 class="basket-header-title">
           My Basket &nbsp;<span>( 1 item)</span>
         </h3>
@@ -80,7 +338,7 @@ function Navbar() {
             </ListItemButton>
           </ListItem>
         ))}
-      </List>
+      </List> */}
       <Divider />
     </Box>
   );
