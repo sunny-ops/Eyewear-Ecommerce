@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutFn } from "../store/isLogin";
-import { addItemFn } from "../store/userInfo";
+import { addItemFn, removeItemFn } from "../store/cartInfo";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
@@ -20,6 +20,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import glasses from "../data/data";
+import { ConnectingAirportsOutlined } from "@mui/icons-material";
 
 function Navbar() {
   const location = useLocation();
@@ -27,12 +28,16 @@ function Navbar() {
   const cartState = useSelector((state) => state.cartInfoStore.cartInfo);
   const dispatch = useDispatch();
   console.log("Navbar, isLogin", loginState);
-  console.log(cartState);
-  console.log(glasses[cartState[0].id].img);
-  console.log(cartState[0].cnt);
+  console.log("cart state", cartState);
 
   const logoutBtn = () => {
     dispatch(logoutFn());
+  };
+
+  const removeBtn = (i) => {
+    // e.stopPropagation();
+    console.log("remove");
+    dispatch(removeItemFn(i));
   };
 
   // drawer
@@ -55,7 +60,7 @@ function Navbar() {
     <Box
       // sx={{ width: 568 }}
       role="presentation"
-      onClick={toggleDrawer(false)}
+      onClick={() => toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
       <div className="basket">
@@ -77,7 +82,7 @@ function Navbar() {
               <span>Clear Basket</span>
             </button>
           </div>
-          <div className="basket-item">
+          {/* <div className="basket-item">
             <div className="basket-item-control">
               <button
                 className="button button-border button-border-gray button-small basket-control basket-control-add"
@@ -197,7 +202,7 @@ function Navbar() {
                 </span>
               </button>
             </div>
-          </div>
+          </div> */}
           {cartState.map((v, i) => {
             return (
               <div className="basket-item">
@@ -297,6 +302,9 @@ function Navbar() {
                   <button
                     className="basket-item-remove button button-border button-border-gray button-small"
                     type="button"
+                    onClick={() => {
+                      removeBtn(i);
+                    }}
                   >
                     <span
                       role="img"

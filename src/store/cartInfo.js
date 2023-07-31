@@ -11,7 +11,11 @@ const cartInfoStore = createSlice({
       state.cartInfo.push(action.payload);
       console.log("cartInfo.js - cartInfo", state.cartInfo);
     },
+    removeItemFn: (state, action) => {
+      console.log("cartInfo.js - cartpayload", action.payload);
+      state.cartInfo.splice(action.payload, 1);
+    },
   },
 });
-export const { addItemFn } = cartInfoStore.actions;
+export const { addItemFn, removeItemFn } = cartInfoStore.actions;
 export default cartInfoStore.reducer;
