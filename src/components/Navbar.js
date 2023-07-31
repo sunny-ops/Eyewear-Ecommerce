@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutFn } from "../store/isLogin";
+import { addItemFn } from "../store/userInfo";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
@@ -18,12 +19,17 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+import glasses from "../data/data";
 
 function Navbar() {
   const location = useLocation();
   const loginState = useSelector((state) => state.isLoginStore.isLogin);
+  const cartState = useSelector((state) => state.cartInfoStore.cartInfo);
   const dispatch = useDispatch();
   console.log("Navbar, isLogin", loginState);
+  console.log(cartState);
+  console.log(glasses[cartState[0].id].img);
+  console.log(cartState[0].cnt);
 
   const logoutBtn = () => {
     dispatch(logoutFn());
@@ -129,27 +135,32 @@ function Navbar() {
                 <img
                   alt="Burnikk"
                   className="basket-item-img is-img-loaded"
-                  src="https://firebasestorage.googleapis.com/v0/b/salinaka-ecommerce.appspot.com/o/products%2F7l3FMZqY8JdfssalDgx2?alt=media&amp;token=be15689c-e12c-4829-9d78-32395ef1e3f7"
+                  src={process.env.PUBLIC_URL + glasses[cartState[0].id].img}
                 />
               </div>
               <div className="basket-item-details">
                 <a href="/product/7l3FMZqY8JdfssalDgx2">
-                  <h4 className="underline basket-item-name">Burnikk</h4>
+                  <h4 className="underline basket-item-name">
+                    {glasses[cartState[0].id].name}
+                  </h4>
                 </a>
                 <div className="basket-item-specs">
                   <div>
                     <span className="spec-title">Quantity</span>
-                    <h5 className="my-0">2</h5>
+                    <h5 className="my-0">{cartState[0].cnt}</h5>
                   </div>
                   <div>
                     <span className="spec-title">Size</span>
-                    <h5 className="my-0">36 mm</h5>
+                    <h5 className="my-0">
+                      {glasses[cartState[0].id].size[cartState[0].size]} mm
+                    </h5>
                   </div>
                   <div>
                     <span className="spec-title">Color</span>
                     <div
                       style={{
-                        backgroundColor: "rgb(0, 0, 0)",
+                        backgroundColor:
+                          glasses[cartState[0].id].color[cartState[0].color],
                         width: "15px",
                         height: "15px",
                         borderRadius: "50%",
@@ -159,7 +170,7 @@ function Navbar() {
                 </div>
               </div>
               <div className="basket-item-price">
-                <h4 className="my-0">$480.00</h4>
+                <h4 className="my-0">{glasses[cartState[0].id].price * 2}</h4>
               </div>
               <button
                 className="basket-item-remove button button-border button-border-gray button-small"
