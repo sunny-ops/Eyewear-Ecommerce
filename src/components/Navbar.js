@@ -56,7 +56,7 @@ function Navbar() {
         <div className="basket-list">
           <div className="basket-header">
             <h3 className="basket-header-title">
-              My Basket &nbsp;<span>( 2 items)</span>
+              My Basket &nbsp;<span>(2 items)</span>
             </h3>
             <span
               className="basket-toggle button button-border button-border-gray button-small"
@@ -310,35 +310,7 @@ function Navbar() {
           </button>
         </div>
       </div>
-      {/* <div class="basket-header">
-        <h3 class="basket-header-title">
-          My Basket &nbsp;<span>( 1 item)</span>
-        </h3>
-        <span
-          class="basket-toggle button button-border button-border-gray button-small"
-          role="presentation"
-        >
-          Close
-        </span>
-        <button
-          class="basket-clear button button-border button-border-gray button-small"
-          type="button"
-        >
-          <span>Clear Basket</span>
-        </button>
-      </div>
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List> */}
+
       <Divider />
     </Box>
   );

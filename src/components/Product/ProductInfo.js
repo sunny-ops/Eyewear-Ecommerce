@@ -17,9 +17,16 @@ function ProductInfo() {
   const params = useParams();
   const { id, name } = useParams();
   const [age, setAge] = React.useState("");
+  const [selected, setSelected] = React.useState(new Array(7).fill(false));
 
   const handleChange = (event) => {
     setAge(event.target.value);
+  };
+
+  const selectColor = (index) => {
+    let newArr = new Array(7).fill(false);
+    newArr[index] = true;
+    setSelected(newArr);
   };
 
   return (
@@ -128,41 +135,19 @@ function ProductInfo() {
               <br />
               <br />
               <div className="color-chooser">
-                <div
-                  className="color-item"
-                  role="presentation"
-                  style={{ backgroundColor: `${glasses[id - 1].color[0]}` }}
-                ></div>
-                <div
-                  className="color-item"
-                  role="presentation"
-                  style={{ backgroundColor: `${glasses[id - 1].color[1]}` }}
-                ></div>
-                <div
-                  className="color-item"
-                  role="presentation"
-                  style={{ backgroundColor: `${glasses[id - 1].color[2]}` }}
-                ></div>
-                <div
-                  className="color-item"
-                  role="presentation"
-                  style={{ backgroundColor: `${glasses[id - 1].color[3]}` }}
-                ></div>
-                <div
-                  className="color-item"
-                  role="presentation"
-                  style={{ backgroundColor: `${glasses[id - 1].color[4]}` }}
-                ></div>
-                <div
-                  className="color-item"
-                  role="presentation"
-                  style={{ backgroundColor: `${glasses[id - 1].color[5]}` }}
-                ></div>
-                <div
-                  className="color-item"
-                  role="presentation"
-                  style={{ backgroundColor: `${glasses[id - 1].color[6]}` }}
-                ></div>
+                {glasses[id - 1].color.map((color, index) => (
+                  <div
+                    key={index}
+                    className={
+                      selected[index]
+                        ? "color-item color-item-selected"
+                        : "color-item"
+                    }
+                    role="presentation"
+                    style={{ backgroundColor: color }}
+                    onClick={() => selectColor(index)}
+                  ></div>
+                ))}
               </div>
             </div>
             <h1 className="mb-5">${glasses[id - 1].price}.00</h1>
