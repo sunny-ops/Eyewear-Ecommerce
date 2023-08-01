@@ -235,3 +235,24 @@ textarea {
   padding: 1.6rem 3.2rem;
   text-transform: uppercase;
 }
+
+/* cart badge */
+.badge-count,
+.footer {
+  display: flex;
+  align-items: center;
+}
+
+.badge-count {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(247, 45, 45, 0.986);
+  position: absolute;
+  top: -12px;
+  right: -15px;
+  justify-content: center;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
