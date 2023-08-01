@@ -24,7 +24,7 @@ function ProductInfo() {
   const dispatch = useDispatch();
   const handleChange = (event) => {
     setAge(event.target.value);
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
 
   const selectColor = (index) => {
@@ -36,7 +36,7 @@ function ProductInfo() {
 
   const addToCartBtn = () => {
     const item = { id: id - 1, cnt: 1, size: age, color: seletedIdx };
-    console.log(item);
+    // console.log(item);
     dispatch(addItemFn(item));
   };
 

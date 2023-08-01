@@ -7,7 +7,12 @@ import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutFn } from "../store/isLogin";
-import { addItemFn, removeItemFn } from "../store/cartInfo";
+import {
+  addItemFn,
+  removeItemFn,
+  clearCartFn,
+  addItemCountFn,
+} from "../store/cartInfo";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
@@ -35,9 +40,16 @@ function Navbar() {
   };
 
   const removeBtn = (i) => {
-    // e.stopPropagation();
-    console.log("remove");
     dispatch(removeItemFn(i));
+  };
+
+  const clearCartBtn = () => {
+    dispatch(clearCartFn());
+  };
+
+  const addItemCntBtn = (i) => {
+    console.log("add", cartState[i]);
+    dispatch(addItemCountFn(i));
   };
 
   // drawer
@@ -60,7 +72,7 @@ function Navbar() {
     <Box
       // sx={{ width: 568 }}
       role="presentation"
-      onClick={() => toggleDrawer(false)}
+      // onClick={() => toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
       <div className="basket">
@@ -72,6 +84,8 @@ function Navbar() {
             <span
               className="basket-toggle button button-border button-border-gray button-small"
               role="presentation"
+              onClick={toggleDrawer(false)}
+              style={{ cursor: "pointer" }}
             >
               Close
             </span>
@@ -79,130 +93,10 @@ function Navbar() {
               className="basket-clear button button-border button-border-gray button-small"
               type="button"
             >
-              <span>Clear Basket</span>
+              <span onClick={clearCartBtn}>Clear Basket</span>
             </button>
           </div>
-          {/* <div className="basket-item">
-            <div className="basket-item-control">
-              <button
-                className="button button-border button-border-gray button-small basket-control basket-control-add"
-                type="button"
-              >
-                <span
-                  role="img"
-                  aria-label="plus"
-                  className="anticon anticon-plus"
-                  style={{ fontSize: "9px" }}
-                >
-                  <svg
-                    viewBox="64 64 896 896"
-                    focusable="false"
-                    data-icon="plus"
-                    width="1em"
-                    height="1em"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <defs>
-                      <style></style>
-                    </defs>
-                    <path d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"></path>
-                    <path d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"></path>
-                  </svg>
-                </span>
-              </button>
-              <button
-                className="button button-border button-border-gray button-small basket-control basket-control-minus"
-                type="button"
-              >
-                <span
-                  role="img"
-                  aria-label="minus"
-                  className="anticon anticon-minus"
-                  style={{ fontSize: "9px" }}
-                >
-                  <svg
-                    viewBox="64 64 896 896"
-                    focusable="false"
-                    data-icon="minus"
-                    width="1em"
-                    height="1em"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path>
-                  </svg>
-                </span>
-              </button>
-            </div>
-            <div className="basket-item-wrapper">
-              <div className="basket-item-img-wrapper">
-                <img
-                  alt="Burnikk"
-                  className="basket-item-img is-img-loaded"
-                  src={process.env.PUBLIC_URL + glasses[cartState[0].id].img}
-                />
-              </div>
-              <div className="basket-item-details">
-                <a href="/product/7l3FMZqY8JdfssalDgx2">
-                  <h4 className="underline basket-item-name">
-                    {glasses[cartState[0].id].name}
-                  </h4>
-                </a>
-                <div className="basket-item-specs">
-                  <div>
-                    <span className="spec-title">Quantity</span>
-                    <h5 className="my-0">{cartState[0].cnt}</h5>
-                  </div>
-                  <div>
-                    <span className="spec-title">Size</span>
-                    <h5 className="my-0">
-                      {glasses[cartState[0].id].size[cartState[0].size]} mm
-                    </h5>
-                  </div>
-                  <div>
-                    <span className="spec-title">Color</span>
-                    <div
-                      style={{
-                        backgroundColor:
-                          glasses[cartState[0].id].color[cartState[0].color],
-                        width: "15px",
-                        height: "15px",
-                        borderRadius: "50%",
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-              <div className="basket-item-price">
-                <h4 className="my-0">
-                  {glasses[cartState[0].id].price * cartState[0].cnt}
-                </h4>
-              </div>
-              <button
-                className="basket-item-remove button button-border button-border-gray button-small"
-                type="button"
-              >
-                <span
-                  role="img"
-                  aria-label="close"
-                  className="anticon anticon-close"
-                >
-                  <svg
-                    viewBox="64 64 896 896"
-                    focusable="false"
-                    data-icon="close"
-                    width="1em"
-                    height="1em"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"></path>
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </div> */}
+
           {cartState.map((v, i) => {
             return (
               <div className="basket-item" key={v.id}>
@@ -210,6 +104,9 @@ function Navbar() {
                   <button
                     className="button button-border button-border-gray button-small basket-control basket-control-add"
                     type="button"
+                    onClick={() => {
+                      addItemCntBtn(i);
+                    }}
                   >
                     <span
                       role="img"
@@ -296,7 +193,7 @@ function Navbar() {
                   </div>
                   <div className="basket-item-price">
                     <h4 className="my-0">
-                      {glasses[v.id].price * cartState[i].cnt}
+                      ${glasses[v.id].price * cartState[i].cnt}
                     </h4>
                   </div>
                   <button
