@@ -12,6 +12,7 @@ import {
   removeItemFn,
   clearCartFn,
   addItemCountFn,
+  subtractItemCountFn,
 } from "../store/cartInfo";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -50,6 +51,11 @@ function Navbar() {
   const addItemCntBtn = (i) => {
     console.log("add", cartState[i]);
     dispatch(addItemCountFn(i));
+  };
+
+  const subtractItemCntBtn = (i) => {
+    console.log("subtract", cartState[i]);
+    dispatch(subtractItemCountFn(i));
   };
 
   // drawer
@@ -134,6 +140,9 @@ function Navbar() {
                   <button
                     className="button button-border button-border-gray button-small basket-control basket-control-minus"
                     type="button"
+                    onClick={() => {
+                      subtractItemCntBtn(i);
+                    }}
                   >
                     <span
                       role="img"
