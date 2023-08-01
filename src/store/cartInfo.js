@@ -22,14 +22,14 @@ const cartInfoStore = createSlice({
     },
     addItemCountFn: (state, action) => {
       let index = action.payload;
-      console.log(state.cartInfo[index]);
+      // console.log(state.cartInfo[index]);
       if (state.cartInfo[index].cnt < 10) {
         state.cartInfo[index].cnt += 1;
       }
     },
     subtractItemCountFn: (state, action) => {
       let index = action.payload;
-      console.log(state.cartInfo[index]);
+      // console.log(state.cartInfo[index]);
       if (state.cartInfo[index].cnt > 0) {
         state.cartInfo[index].cnt -= 1;
       }

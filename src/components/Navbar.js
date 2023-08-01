@@ -33,6 +33,16 @@ function Navbar() {
   const loginState = useSelector((state) => state.isLoginStore.isLogin);
   const cartState = useSelector((state) => state.cartInfoStore.cartInfo);
   const dispatch = useDispatch();
+  let totalAmount = 0;
+  // for (let i = 0; i < cartState.length; i++) {
+  //   totalAmount += cartState[i].cnt * glasses[cartState[i].id]; glasses[v.id].price
+  //   console.log("total", cartState[i]);
+  // }
+  for (let v of cartState) {
+    totalAmount += glasses[v.id].price * v.cnt;
+  }
+  console.log("total amount", totalAmount);
+
   console.log("Navbar, isLogin", loginState);
   console.log("cart state", cartState);
 
@@ -49,12 +59,10 @@ function Navbar() {
   };
 
   const addItemCntBtn = (i) => {
-    console.log("add", cartState[i]);
     dispatch(addItemCountFn(i));
   };
 
   const subtractItemCntBtn = (i) => {
-    console.log("subtract", cartState[i]);
     dispatch(subtractItemCountFn(i));
   };
 
@@ -235,10 +243,13 @@ function Navbar() {
             );
           })}
         </div>
-        <div className="basket-checkout">
+        <div
+          className="basket-checkout"
+          style={{ borderTop: "1px solid #e1e1e1" }}
+        >
           <div className="basket-total">
             <p className="basket-total-title">Subtotal Amout:</p>
-            <h2 className="basket-total-amount">$764.00</h2>
+            <h2 className="basket-total-amount">${totalAmount}</h2>
           </div>
           <button className="basket-checkout-button button" type="button">
             Check Out
