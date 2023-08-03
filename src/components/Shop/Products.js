@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { addItemFn, removeSelectedItemFn } from "../../store/cartInfo";
+import { addToCartFn, removeFromCartFn } from "../../store/dataInfo";
 
 function Products() {
   const data = useSelector((state) => state.dataInfoStore.dataInfo);
@@ -21,8 +23,7 @@ function Products() {
     };
     initialGlasses.push(glass);
   }
-  // console.log("data", data);
-  // console.log(initialGlasses);
+
   const [glasses, setGlasses] = useState(initialGlasses);
 
   // const [glasses, setGlasses] = useState([
@@ -186,7 +187,6 @@ function Products() {
 
   const hoverFn = (v, id) => {
     const newGlasses = [...glasses];
-    console.log("v", v);
     newGlasses[id - 1] = {
       ...glasses[id - 1],
       style: {
@@ -213,10 +213,24 @@ function Products() {
     setGlasses(newGlasses);
   };
 
+  const addToCartBtn = (id) => {
+    // const item = { id: id, cnt: 1, size: age, color: seletedIdx };
+
+    // dispatch(addItemFn(item));
+    if (!glasses[id].added) {
+      // console.log("id", id);
+      // dispatch(addToCartFn(id));
+      // dispatch(addItemFn(item));
+    } else {
+      // dispatch(removeFromCartFn(id));
+      // dispatch(removeSelectedItemFn(id));
+    }
+  };
+
   return (
     <>
       <div className="product-grid">
-        {glasses.map((v) => {
+        {glasses.map((v, id) => {
           return (
             <div
               className="product-display"
@@ -242,7 +256,7 @@ function Products() {
               <div className="product-display-details">
                 <h5 className="text-center">{v.name}</h5>
                 <p className="text-subtle text-italic product-card-brand">
-                  {v.category}
+                  {v.brand}
                 </p>
                 <h4 className="product-price">${v.price}.00</h4>
               </div>
@@ -253,8 +267,11 @@ function Products() {
                   // opacity: v.isHovered ? "1" : "0",
                   bottom: v.isHovered ? "0" : "-44px",
                 }}
+                onClick={() => {
+                  addToCartBtn(id);
+                }}
               >
-                Add to basket
+                {!data[id].added ? "Add to Basket" : "Remove from Basket"}
               </button>
             </div>
           );
