@@ -1,9 +1,9 @@
-import React from "react";
+import React, { createRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./Navbar.css";
 // import "./Shop/NavbarShop.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutFn } from "../store/isLogin";
@@ -30,9 +30,12 @@ import { ConnectingAirportsOutlined } from "@mui/icons-material";
 
 function Navbar() {
   const location = useLocation();
+  const navigate = useNavigate();
   const loginState = useSelector((state) => state.isLoginStore.isLogin);
   const cartState = useSelector((state) => state.cartInfoStore.cartInfo);
   const dispatch = useDispatch();
+  const iptRef = createRef();
+
   let totalAmount = 0;
   // for (let i = 0; i < cartState.length; i++) {
   //   totalAmount += cartState[i].cnt * glasses[cartState[i].id]; glasses[v.id].price
@@ -64,6 +67,14 @@ function Navbar() {
 
   const subtractItemCntBtn = (i) => {
     dispatch(subtractItemCountFn(i));
+  };
+
+  const keyDownBtn = (event) => {
+    if (event.key == "Enter") {
+      console.log("keydown");
+      console.log(iptRef.current.value);
+      navigate(`/search/${iptRef.current.value}`);
+    }
   };
 
   // drawer
@@ -389,6 +400,8 @@ function Navbar() {
                 className="search-input searchbar-input me-4"
                 type="search"
                 placeholder="Search Products..."
+                onKeyDown={keyDownBtn}
+                ref={iptRef}
               />
 
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-baseline">

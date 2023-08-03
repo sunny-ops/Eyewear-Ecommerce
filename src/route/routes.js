@@ -7,6 +7,7 @@ import Recommended from "../components/Recommended/Recommened";
 import Featured from "../components/Featured/Featured";
 import SignIn from "../components/SignIn/SignIn";
 import SignUp from "../components/SignUp/SignUp";
+import Search from "../components/Search/Search";
 
 const routes = [
   { path: "/", element: <Navigate to="/home" /> },
@@ -17,6 +18,7 @@ const routes = [
   { path: "/signin", element: <SignIn /> },
   { path: "/signup", element: <SignUp /> },
   { path: "/product/:id/:name", element: <ProductInfo /> },
+  { path: "/search/:key", element: <Search /> },
 ];
 
 export default routes;
