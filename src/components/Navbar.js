@@ -14,6 +14,7 @@ import {
   addItemCountFn,
   subtractItemCountFn,
 } from "../store/cartInfo";
+import { removeFromCartFn, removeAllCartFn } from "../store/dataInfo";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
@@ -51,10 +52,12 @@ function Navbar() {
 
   const removeBtn = (i) => {
     dispatch(removeItemFn(i));
+    dispatch(removeFromCartFn(cartState[i].id));
   };
 
   const clearCartBtn = () => {
     dispatch(clearCartFn());
+    dispatch(removeAllCartFn());
   };
 
   const addItemCntBtn = (i) => {

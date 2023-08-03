@@ -16,7 +16,14 @@ const dataInfoStore = createSlice({
     removeFromCartFn: (state, action) => {
       state.dataInfo[action.payload].added = false;
     },
+
+    removeAllCartFn: (state) => {
+      for (let ele of state.dataInfo) {
+        ele.added = false;
+      }
+    },
   },
 });
-export const { addToCartFn, removeFromCartFn } = dataInfoStore.actions;
+export const { addToCartFn, removeFromCartFn, removeAllCartFn } =
+  dataInfoStore.actions;
 export default dataInfoStore.reducer;

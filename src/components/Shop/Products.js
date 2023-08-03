@@ -9,6 +9,7 @@ import { addToCartFn, removeFromCartFn } from "../../store/dataInfo";
 
 function Products() {
   const data = useSelector((state) => state.dataInfoStore.dataInfo);
+  const dispatch = useDispatch();
   const initialGlasses = [];
   for (let obj of data) {
     const glass = {
@@ -214,16 +215,15 @@ function Products() {
   };
 
   const addToCartBtn = (id) => {
-    // const item = { id: id, cnt: 1, size: age, color: seletedIdx };
+    const item = { id: id, cnt: 1, size: 0, color: 0 };
 
     // dispatch(addItemFn(item));
-    if (!glasses[id].added) {
-      // console.log("id", id);
-      // dispatch(addToCartFn(id));
-      // dispatch(addItemFn(item));
+    if (!data[id].added) {
+      dispatch(addToCartFn(id));
+      dispatch(addItemFn(item));
     } else {
-      // dispatch(removeFromCartFn(id));
-      // dispatch(removeSelectedItemFn(id));
+      dispatch(removeFromCartFn(id));
+      dispatch(removeSelectedItemFn(id));
     }
   };
 
