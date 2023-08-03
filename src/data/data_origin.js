@@ -16,7 +16,6 @@ export default [
       "rgb(0, 240, 224)",
       "rgb(19, 247, 2)",
     ],
-    added: false,
   },
   {
     id: 2,
@@ -35,7 +34,6 @@ export default [
       "rgb(255, 238, 0)",
       "rgb(0, 240, 8)",
     ],
-    added: false,
   },
   {
     id: 3,
@@ -52,7 +50,6 @@ export default [
       "rgb(0, 77, 132)",
       "rgb(117, 54, 0)",
     ],
-    added: false,
   },
   {
     id: 4,
@@ -71,7 +68,6 @@ export default [
       "rgb(3, 215, 252)",
       "rgb(12, 228, 26)",
     ],
-    added: false,
   },
   {
     id: 5,
@@ -90,7 +86,6 @@ export default [
       "rgb(3, 215, 252)",
       "rgb(12, 228, 26)",
     ],
-    added: false,
   },
   {
     id: 6,
@@ -107,7 +102,6 @@ export default [
       "rgb(0, 77, 132)",
       "rgb(117, 54, 0)",
     ],
-    added: false,
   },
   {
     id: 7,
@@ -125,7 +119,6 @@ export default [
       "rgb(40, 240, 0)",
       "rgb(255, 10, 10)",
     ],
-    added: false,
   },
   {
     id: 8,
@@ -142,7 +135,6 @@ export default [
       "rgb(0, 77, 132)",
       "rgb(117, 54, 0)",
     ],
-    added: false,
   },
   {
     id: 9,
@@ -159,7 +151,6 @@ export default [
       "rgb(0, 77, 132)",
       "rgb(117, 54, 0)",
     ],
-    added: false,
   },
   {
     id: 10,
@@ -175,7 +166,6 @@ export default [
       "rgb(232, 249, 1)",
       "rgb(47, 53, 244)",
     ],
-    added: false,
   },
   {
     id: 11,
@@ -194,7 +184,6 @@ export default [
       "rgb(9, 225, 182)",
       "rgb(255, 111, 0)",
     ],
-    added: false,
   },
   {
     id: 12,
@@ -211,7 +200,6 @@ export default [
       "rgb(0, 77, 132)",
       "rgb(117, 54, 0)",
     ],
-    added: false,
   },
   {
     id: 13,
@@ -222,7 +210,6 @@ export default [
     img: "/assets/glasses_lightbr.jpg",
     size: [28, 36, 42],
     color: ["rgb(202, 80, 247)", "rgb(45, 72, 210)", "rgb(255, 141, 10)"],
-    added: false,
   },
   {
     id: 14,
@@ -233,7 +220,6 @@ export default [
     img: "/assets/glasses_red.jpg",
     size: [28, 36, 42],
     color: ["rgb(236, 169, 24)"],
-    added: false,
   },
   {
     id: 15,
@@ -250,7 +236,6 @@ export default [
       "rgb(0, 77, 132)",
       "rgb(117, 54, 0)",
     ],
-    added: false,
   },
   {
     id: 16,
@@ -261,7 +246,6 @@ export default [
     img: "/assets/glasses_honey.jpg",
     size: [28, 36, 42],
     color: ["rgb(223, 22, 22)"],
-    added: false,
   },
   {
     id: 17,
@@ -278,7 +262,6 @@ export default [
       "rgb(0, 77, 132)",
       "rgb(117, 54, 0)",
     ],
-    added: false,
   },
   {
     id: 18,
@@ -296,6 +279,5 @@ export default [
       "rgb(253, 138, 8)",
       "rgb(255, 82, 183)",
     ],
-    added: false,
   },
 ];

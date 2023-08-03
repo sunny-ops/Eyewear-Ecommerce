@@ -10,14 +10,15 @@ import Select from "@mui/material/Select";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Display from "../Home/Display";
-import glasses from "../../data/data";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemFn } from "../../store/cartInfo";
+import { addToCartFn, removeFromCartFn } from "../../store/dataInfo";
 
 function ProductInfo() {
   const navigate = useNavigate();
   const params = useParams();
   const { id, name } = useParams();
+  const glasses = useSelector((state) => state.dataInfoStore.dataInfo);
   const [age, setAge] = React.useState(0);
   const [selected, setSelected] = React.useState(new Array(7).fill(false));
   const [seletedIdx, setSelectedIdx] = React.useState(0);
@@ -38,6 +39,11 @@ function ProductInfo() {
     const item = { id: id - 1, cnt: 1, size: age, color: seletedIdx };
     // console.log(item);
     dispatch(addItemFn(item));
+    if (!glasses[id - 1].added) {
+      dispatch(addToCartFn(id - 1));
+    } else {
+      dispatch(removeFromCartFn(id - 1));
+    }
   };
 
   return (
@@ -168,7 +174,9 @@ function ProductInfo() {
                 type="button"
                 onClick={addToCartBtn}
               >
-                Add To Basket
+                {!glasses[id - 1].added
+                  ? "Add to Basket"
+                  : "Remove from Basket"}
               </button>
             </div>
           </div>

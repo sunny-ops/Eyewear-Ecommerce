@@ -25,7 +25,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import glasses from "../data/data";
+import glasses from "../data/data_origin";
 import { ConnectingAirportsOutlined } from "@mui/icons-material";
 
 function Navbar() {
@@ -44,10 +44,6 @@ function Navbar() {
   for (let v of cartState) {
     totalAmount += glasses[v.id].price * v.cnt;
   }
-  console.log("total amount", totalAmount);
-
-  console.log("Navbar, isLogin", loginState);
-  console.log("cart state", cartState);
 
   const logoutBtn = () => {
     dispatch(logoutFn());
@@ -427,7 +423,7 @@ function Navbar() {
                       </svg>
                     </span>
                     {cartState.length > 0 ? (
-                      <span class="badge-count">{cartState.length}</span>
+                      <span className="badge-count">{cartState.length}</span>
                     ) : (
                       <></>
                     )}
