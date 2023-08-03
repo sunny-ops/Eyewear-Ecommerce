@@ -11,7 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Display from "../Home/Display";
 import { useDispatch, useSelector } from "react-redux";
-import { addItemFn } from "../../store/cartInfo";
+import { addItemFn, removeSelectedItemFn } from "../../store/cartInfo";
 import { addToCartFn, removeFromCartFn } from "../../store/dataInfo";
 
 function ProductInfo() {
@@ -37,12 +37,14 @@ function ProductInfo() {
 
   const addToCartBtn = () => {
     const item = { id: id - 1, cnt: 1, size: age, color: seletedIdx };
-    // console.log(item);
-    dispatch(addItemFn(item));
+
+    // dispatch(addItemFn(item));
     if (!glasses[id - 1].added) {
       dispatch(addToCartFn(id - 1));
+      dispatch(addItemFn(item));
     } else {
       dispatch(removeFromCartFn(id - 1));
+      dispatch(removeSelectedItemFn(id - 1));
     }
   };
 

@@ -16,6 +16,12 @@ const cartInfoStore = createSlice({
       // console.log("cartInfo.js - cartpayload", action.payload);
       state.cartInfo.splice(action.payload, 1);
     },
+    removeSelectedItemFn: (state, action) => {
+      let newArr = state.cartInfo.filter((v) => {
+        return v.id != action.payload;
+      });
+      state.cartInfo = newArr;
+    },
     clearCartFn: (state) => {
       // console.log("clear!");
       state.cartInfo = [];
@@ -39,6 +45,7 @@ const cartInfoStore = createSlice({
 export const {
   addItemFn,
   removeItemFn,
+  removeSelectedItemFn,
   clearCartFn,
   addItemCountFn,
   subtractItemCountFn,
