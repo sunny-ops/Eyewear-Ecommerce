@@ -171,15 +171,23 @@ function ProductInfo() {
             </div>
             <h1 className="mb-5">${glasses[id - 1].price}.00</h1>
             <div className="product-modal-action">
-              <button
-                className="button button-small "
-                type="button"
-                onClick={addToCartBtn}
-              >
-                {!glasses[id - 1].added
-                  ? "Add to Basket"
-                  : "Remove from Basket"}
-              </button>
+              {!glasses[id - 1].added ? (
+                <button
+                  className="button button-small"
+                  type="button"
+                  onClick={addToCartBtn}
+                >
+                  Add to Basket
+                </button>
+              ) : (
+                <button
+                  className="button button-small button-muted"
+                  type="button"
+                  onClick={addToCartBtn}
+                >
+                  Remove from Basket
+                </button>
+              )}
             </div>
           </div>
         </div>

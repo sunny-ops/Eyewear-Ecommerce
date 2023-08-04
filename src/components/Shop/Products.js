@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addItemFn, removeSelectedItemFn } from "../../store/cartInfo";
 import { addToCartFn, removeFromCartFn } from "../../store/dataInfo";
+import { Link } from "react-router-dom";
 
 function Products() {
   const data = useSelector((state) => state.dataInfoStore.dataInfo);
@@ -248,18 +249,20 @@ function Products() {
                 leaveFn(v, v.id);
               }}
             >
-              <div
-                className="product-display-img-products"
-                // style={{ backgroundImage: `url(${v.imgURL})` }}
-                style={v.style}
-              ></div>
-              <div className="product-display-details">
-                <h5 className="text-center">{v.name}</h5>
-                <p className="text-subtle text-italic product-card-brand">
-                  {v.brand}
-                </p>
-                <h4 className="product-price">${v.price}.00</h4>
-              </div>
+              <Link to={`/product/${v.id}/${v.name}`}>
+                <div
+                  className="product-display-img-products"
+                  // style={{ backgroundImage: `url(${v.imgURL})` }}
+                  style={v.style}
+                ></div>
+                <div className="product-display-details">
+                  <h5 className="text-center">{v.name}</h5>
+                  <p className="text-subtle text-italic product-card-brand">
+                    {v.brand}
+                  </p>
+                  <h4 className="product-price">${v.price}.00</h4>
+                </div>
+              </Link>
               <button
                 className="product-card-button button-small button button-block "
                 type="button"

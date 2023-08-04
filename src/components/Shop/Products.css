@@ -5,8 +5,9 @@
 
 .product-grid {
   display: grid;
-  margin: 100px 100px;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  margin: 50px 100px;
+  /* grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); */
+  grid-template-columns: repeat(auto-fit, 16rem);
   gap: 1.2rem;
 }
 
