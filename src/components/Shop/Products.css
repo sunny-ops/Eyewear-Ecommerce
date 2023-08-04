@@ -4,6 +4,7 @@
 }
 
 .product-grid {
+  min-height: 62vh;
   display: grid;
   margin: 50px 100px;
   /* grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); */

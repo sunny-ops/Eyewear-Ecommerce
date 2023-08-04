@@ -13,6 +13,7 @@ function Search(props) {
   const dispatch = useDispatch();
   const initialGlasses = [];
   console.log("search key", key);
+
   for (let obj of data) {
     if (
       !(
@@ -38,9 +39,10 @@ function Search(props) {
 
   const [glasses, setGlasses] = useState(initialGlasses);
   console.log("glasses length", glasses.length);
+
   useEffect(() => {
     setGlasses(initialGlasses);
-  }, [initialGlasses[0].id, initialGlasses.length]);
+  }, [key]);
 
   const hoverFn = (v, id) => {
     console.log(id);
@@ -136,11 +138,6 @@ function Search(props) {
             </div>
           );
         })}
-      </div>
-      <div className="d-flex align-items-center justify-content-center padding-l">
-        <button className="button button-small" type="button">
-          Show More Items
-        </button>
       </div>
     </>
   );
