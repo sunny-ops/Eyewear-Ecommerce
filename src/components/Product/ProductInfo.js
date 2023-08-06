@@ -7,6 +7,9 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Display from "../Home/Display";
@@ -23,6 +26,23 @@ function ProductInfo() {
   const [selected, setSelected] = React.useState(new Array(7).fill(false));
   const [seletedIdx, setSelectedIdx] = React.useState(0);
   const dispatch = useDispatch();
+  // snackbar
+  const [state, setState] = React.useState({
+    open: false,
+    vertical: "top",
+    horizontal: "center",
+  });
+  const { vertical, horizontal, open } = state;
+
+  const handleClick = (newState) => () => {
+    setState({ ...newState, open: true });
+  };
+
+  const handleClose = () => {
+    setState({ ...state, open: false });
+  };
+
+  //
   const handleChange = (event) => {
     setAge(event.target.value);
     // console.log(event.target.value);
@@ -35,16 +55,18 @@ function ProductInfo() {
     setSelectedIdx(index);
   };
 
-  const addToCartBtn = () => {
+  const addToCartBtn = (newState) => {
     const item = { id: id - 1, cnt: 1, size: age, color: seletedIdx };
 
     // dispatch(addItemFn(item));
     if (!glasses[id - 1].added) {
       dispatch(addToCartFn(id - 1));
       dispatch(addItemFn(item));
+      setState({ ...newState, open: true });
     } else {
       dispatch(removeFromCartFn(id - 1));
       dispatch(removeSelectedItemFn(id - 1));
+      setState({ ...state, open: false });
     }
   };
 
@@ -175,7 +197,9 @@ function ProductInfo() {
                 <button
                   className="button button-small"
                   type="button"
-                  onClick={addToCartBtn}
+                  onClick={() => {
+                    addToCartBtn({ vertical: "top", horizontal: "right" });
+                  }}
                 >
                   Add to Basket
                 </button>
@@ -189,6 +213,13 @@ function ProductInfo() {
                 </button>
               )}
             </div>
+            <Snackbar
+              anchorOrigin={{ vertical, horizontal }}
+              open={open}
+              onClose={handleClose}
+              message="I love snacks"
+              key={vertical + horizontal}
+            />
           </div>
         </div>
         <Display value="Recommended" margin="0 0"></Display>
