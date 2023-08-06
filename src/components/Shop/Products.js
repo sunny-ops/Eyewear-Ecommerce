@@ -263,19 +263,33 @@ function Products() {
                   <h4 className="product-price">${v.price}.00</h4>
                 </div>
               </Link>
-              <button
-                className="product-card-button button-small button button-block "
-                type="button"
-                style={{
-                  // opacity: v.isHovered ? "1" : "0",
-                  bottom: v.isHovered ? "0" : "-44px",
-                }}
-                onClick={() => {
-                  addToCartBtn(id);
-                }}
-              >
-                {!data[id].added ? "Add to Basket" : "Remove from Basket"}
-              </button>
+              {!data[id].added ? (
+                <button
+                  className="product-card-button button-small button button-block "
+                  type="button"
+                  style={{
+                    bottom: v.isHovered ? "0" : "-44px",
+                  }}
+                  onClick={() => {
+                    addToCartBtn(id);
+                  }}
+                >
+                  Add to basket
+                </button>
+              ) : (
+                <button
+                  className="product-card-button button-small button button-block button-muted "
+                  type="button"
+                  style={{
+                    bottom: v.isHovered ? "0" : "-44px",
+                  }}
+                  onClick={() => {
+                    addToCartBtn(id);
+                  }}
+                >
+                  Remove from basket
+                </button>
+              )}
             </div>
           );
         })}

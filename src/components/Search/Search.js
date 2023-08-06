@@ -126,7 +126,6 @@ function Search(props) {
                 className="product-card-button button-small button button-block "
                 type="button"
                 style={{
-                  // opacity: v.isHovered ? "1" : "0",
                   bottom: v.isHovered ? "0" : "-44px",
                 }}
                 onClick={() => {
