@@ -19,7 +19,7 @@ function SignUp(props) {
     console.log(newUser);
     alert("Sign in successfully");
     dispatch(signupFn(newUser));
-    navigate("/home");
+    navigate("/signin");
   };
   return (
     <>

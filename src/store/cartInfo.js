@@ -36,7 +36,7 @@ const cartInfoStore = createSlice({
     subtractItemCountFn: (state, action) => {
       let index = action.payload;
       // console.log(state.cartInfo[index]);
-      if (state.cartInfo[index].cnt > 0) {
+      if (state.cartInfo[index].cnt > 1) {
         state.cartInfo[index].cnt -= 1;
       }
     },

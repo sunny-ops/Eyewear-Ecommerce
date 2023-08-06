@@ -10,6 +10,7 @@ import Select from "@mui/material/Select";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
+// import makeStyles from "@material-ui/core";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Display from "../Home/Display";
@@ -26,6 +27,7 @@ function ProductInfo() {
   const [selected, setSelected] = React.useState(new Array(7).fill(false));
   const [seletedIdx, setSelectedIdx] = React.useState(0);
   const dispatch = useDispatch();
+  var timeout;
   // snackbar
   const [state, setState] = React.useState({
     open: false,
@@ -62,11 +64,14 @@ function ProductInfo() {
     if (!glasses[id - 1].added) {
       dispatch(addToCartFn(id - 1));
       dispatch(addItemFn(item));
-      setState({ ...newState, open: true });
+      // setState({ ...newState, open: true });
+      // clearTimeout(timeout);
+      // timeout = setTimeout(function () {
+      //   setState({ ...state, open: false });
+      // }, 1000);
     } else {
       dispatch(removeFromCartFn(id - 1));
       dispatch(removeSelectedItemFn(id - 1));
-      setState({ ...state, open: false });
     }
   };
 
@@ -217,9 +222,16 @@ function ProductInfo() {
               anchorOrigin={{ vertical, horizontal }}
               open={open}
               onClose={handleClose}
-              message="I love snacks"
+              message="Item Added to Basket"
               key={vertical + horizontal}
-            />
+              ContentProps={{
+                style: {
+                  position: "absolute",
+                  top: "100px",
+                  backgroundColor: "green",
+                },
+              }}
+            ></Snackbar>
           </div>
         </div>
         <Display value="Recommended" margin="0 0"></Display>
