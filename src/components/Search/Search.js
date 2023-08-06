@@ -122,18 +122,33 @@ function Search(props) {
                   <h4 className="product-price">${v.price}.00</h4>
                 </div>
               </Link>
-              <button
-                className="product-card-button button-small button button-block "
-                type="button"
-                style={{
-                  bottom: v.isHovered ? "0" : "-44px",
-                }}
-                onClick={() => {
-                  addToCartBtn(v.id);
-                }}
-              >
-                {!data[v.id - 1].added ? "Add to Basket" : "Remove from Basket"}
-              </button>
+              {!data[v.id - 1].added ? (
+                <button
+                  className="product-card-button button-small button button-block "
+                  type="button"
+                  style={{
+                    bottom: v.isHovered ? "0" : "-44px",
+                  }}
+                  onClick={() => {
+                    addToCartBtn(v.id);
+                  }}
+                >
+                  Add to Basket
+                </button>
+              ) : (
+                <button
+                  className="product-card-button button-small button button-block button-muted"
+                  type="button"
+                  style={{
+                    bottom: v.isHovered ? "0" : "-44px",
+                  }}
+                  onClick={() => {
+                    addToCartBtn(v.id);
+                  }}
+                >
+                  Remove from Basket
+                </button>
+              )}
             </div>
           );
         })}
