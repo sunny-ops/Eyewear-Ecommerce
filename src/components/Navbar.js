@@ -103,7 +103,7 @@ function Navbar() {
         <div className="basket-list">
           <div className="basket-header">
             <h3 className="basket-header-title">
-              My Basket &nbsp;<span>(2 items)</span>
+              My Basket &nbsp;<span>{cartState.length} items</span>
             </h3>
             <span
               className="basket-toggle button button-border button-border-gray button-small"

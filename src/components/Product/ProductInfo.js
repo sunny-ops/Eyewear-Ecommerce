@@ -11,6 +11,7 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 // import makeStyles from "@material-ui/core";
+// import { makeStyles } from "@mui/styles";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Display from "../Home/Display";
@@ -231,6 +232,7 @@ function ProductInfo() {
                   backgroundColor: "green",
                 },
               }}
+              classes
             ></Snackbar>
           </div>
         </div>
