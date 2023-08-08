@@ -45,6 +45,17 @@ function ProductInfo() {
     top: "80px",
     left: "-55px",
   });
+
+  const StyledDivRemove = styled("div")({
+    backgroundColor: "#FFDEAD",
+    padding: "20px",
+    border: "1px solid #FF5F1F",
+    color: "#FF5F1F",
+    position: "relative",
+    top: "80px",
+    left: "-30px",
+  });
+
   const { vertical, horizontal, open } = state;
 
   const handleClick = (newState) => () => {
@@ -75,25 +86,15 @@ function ProductInfo() {
     if (!glasses[id - 1].added) {
       dispatch(addToCartFn(id - 1));
       dispatch(addItemFn(item));
-      // setState({ ...newState, open: true });
-      // clearTimeout(timeout);
-      // timeout = setTimeout(function () {
-      //   setState({ ...state, open: false });
-      // }, 2000);
     } else {
       dispatch(removeFromCartFn(id - 1));
       dispatch(removeSelectedItemFn(id - 1));
-      // setState({ ...newState, open: true });
-      // clearTimeout(timeout);
-      // timeout = setTimeout(function () {
-      //   setState({ ...state, open: false });
-      // }, 2000);
     }
     setState({ ...newState, open: true });
     clearTimeout(timeout);
     timeout = setTimeout(function () {
       setState({ ...state, open: false });
-    }, 2000);
+    }, 1000);
   };
 
   return (
@@ -256,23 +257,12 @@ function ProductInfo() {
               //   },
               // }}
             >
-              <StyledDivAdd>Item Added to Basket</StyledDivAdd>
+              {glasses[id - 1].added ? (
+                <StyledDivAdd>Item Added to Basket</StyledDivAdd>
+              ) : (
+                <StyledDivRemove>Item Removed from Basket</StyledDivRemove>
+              )}
             </Snackbar>
-
-            {/* <Snackbar
-              anchorOrigin={{ vertical, horizontal }}
-              open={open}
-              onClose={handleClose}
-              message="Item Added to Basket"
-              key={vertical + horizontal}
-              ContentProps={{
-                style: {
-                  position: "absolute",
-                  top: "100px",
-                  backgroundColor: "green",
-                },
-              }}
-            ></Snackbar> */}
           </div>
         </div>
         <Display value="Recommended" margin="0 0"></Display>
