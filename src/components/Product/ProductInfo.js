@@ -246,7 +246,7 @@ function ProductInfo() {
             <Snackbar
               anchorOrigin={{ vertical, horizontal }}
               open={open}
-              onClose={handleClose}
+              // onClose={handleClose}
               // message="Item Added to Basket"
               key={vertical + horizontal}
               // ContentProps={{
