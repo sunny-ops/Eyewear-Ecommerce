@@ -249,13 +249,6 @@ function ProductInfo() {
               // onClose={handleClose}
               // message="Item Added to Basket"
               key={vertical + horizontal}
-              // ContentProps={{
-              //   style: {
-              //     position: "absolute",
-              //     top: "100px",
-              //     backgroundColor: "green",
-              //   },
-              // }}
             >
               {glasses[id - 1].added ? (
                 <StyledDivAdd>Item Added to Basket</StyledDivAdd>

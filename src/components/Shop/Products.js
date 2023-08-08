@@ -99,11 +99,11 @@ function Products() {
       dispatch(removeSelectedItemFn(id));
     }
 
-    // setState({ ...newState, open: true });
-    // clearTimeout(timeout);
-    // timeout = setTimeout(function () {
-    //   setState({ ...state, open: false });
-    // }, 1000);
+    setState({ ...newState, open: true });
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+      setState({ ...state, open: false });
+    }, 1000);
   };
 
   return (
@@ -174,13 +174,6 @@ function Products() {
                 // onClose={handleClose}
                 // message="Item Added to Basket"
                 key={vertical + horizontal}
-                // ContentProps={{
-                //   style: {
-                //     position: "absolute",
-                //     top: "100px",
-                //     backgroundColor: "green",
-                //   },
-                // }}
               >
                 {data[id].added ? (
                   <StyledDivAdd>Item Added to Basket</StyledDivAdd>
