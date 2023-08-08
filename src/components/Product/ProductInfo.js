@@ -35,6 +35,7 @@ function ProductInfo() {
     vertical: "top",
     horizontal: "center",
   });
+
   const StyledDivAdd = styled("div")({
     backgroundColor: "#b3e7b3",
     padding: "20px",
@@ -74,15 +75,25 @@ function ProductInfo() {
     if (!glasses[id - 1].added) {
       dispatch(addToCartFn(id - 1));
       dispatch(addItemFn(item));
-      setState({ ...newState, open: true });
-      clearTimeout(timeout);
-      timeout = setTimeout(function () {
-        setState({ ...state, open: false });
-      }, 2000);
+      // setState({ ...newState, open: true });
+      // clearTimeout(timeout);
+      // timeout = setTimeout(function () {
+      //   setState({ ...state, open: false });
+      // }, 2000);
     } else {
       dispatch(removeFromCartFn(id - 1));
       dispatch(removeSelectedItemFn(id - 1));
+      // setState({ ...newState, open: true });
+      // clearTimeout(timeout);
+      // timeout = setTimeout(function () {
+      //   setState({ ...state, open: false });
+      // }, 2000);
     }
+    setState({ ...newState, open: true });
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+      setState({ ...state, open: false });
+    }, 2000);
   };
 
   return (
@@ -222,7 +233,9 @@ function ProductInfo() {
                 <button
                   className="button button-small button-muted"
                   type="button"
-                  onClick={addToCartBtn}
+                  onClick={() => {
+                    addToCartBtn({ vertical: "top", horizontal: "right" });
+                  }}
                 >
                   Remove from Basket
                 </button>
