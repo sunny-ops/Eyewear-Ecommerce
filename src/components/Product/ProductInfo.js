@@ -90,6 +90,7 @@ function ProductInfo() {
       dispatch(removeFromCartFn(id - 1));
       dispatch(removeSelectedItemFn(id - 1));
     }
+    console.log("ProductInfo", glasses[id - 1].added);
     setState({ ...newState, open: true });
     clearTimeout(timeout);
     timeout = setTimeout(function () {

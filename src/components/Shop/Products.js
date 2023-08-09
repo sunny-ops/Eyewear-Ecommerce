@@ -90,7 +90,6 @@ function Products() {
   const addToCartBtn = (id, newState) => {
     const item = { id: id, cnt: 1, size: 0, color: 0 };
 
-    // dispatch(addItemFn(item));
     if (!data[id].added) {
       dispatch(addToCartFn(id));
       dispatch(addItemFn(item));
@@ -98,7 +97,10 @@ function Products() {
       dispatch(removeFromCartFn(id));
       dispatch(removeSelectedItemFn(id));
     }
-
+    console.log("products.js", data[id].added);
+    data.map((v) => {
+      console.log(v.added);
+    });
     setState({ ...newState, open: true });
     clearTimeout(timeout);
     timeout = setTimeout(function () {
@@ -168,19 +170,6 @@ function Products() {
                   Remove from basket
                 </button>
               )}
-              <Snackbar
-                anchorOrigin={{ vertical, horizontal }}
-                open={open}
-                // onClose={handleClose}
-                // message="Item Added to Basket"
-                key={vertical + horizontal}
-              >
-                {data[id].added ? (
-                  <StyledDivAdd>Item Added to Basket</StyledDivAdd>
-                ) : (
-                  <StyledDivRemove>Item Removed from Basket</StyledDivRemove>
-                )}
-              </Snackbar>
             </div>
           );
         })}
@@ -190,6 +179,19 @@ function Products() {
           Show More Items
         </button>
       </div>
+      <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        open={open}
+        // onClose={handleClose}
+        // message="Item Added to Basket"
+        key={vertical + horizontal}
+      >
+        {data[0].added ? (
+          <StyledDivAdd>Item Added to Basket</StyledDivAdd>
+        ) : (
+          <StyledDivRemove>Item Removed from Basket</StyledDivRemove>
+        )}
+      </Snackbar>
     </>
   );
 }
