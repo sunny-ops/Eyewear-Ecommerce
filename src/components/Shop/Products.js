@@ -14,6 +14,7 @@ function Products() {
   const data = useSelector((state) => state.dataInfoStore.dataInfo);
   const dispatch = useDispatch();
   const initialGlasses = [];
+
   for (let obj of data) {
     const glass = {
       id: obj.id,
@@ -29,6 +30,7 @@ function Products() {
   }
 
   const [glasses, setGlasses] = useState(initialGlasses);
+  const [selectedId, setSelectedId] = useState(0);
   // snackbar
   var timeout;
   const [state, setState] = React.useState({
@@ -97,10 +99,8 @@ function Products() {
       dispatch(removeFromCartFn(id));
       dispatch(removeSelectedItemFn(id));
     }
-    console.log("products.js", data[id].added);
-    data.map((v) => {
-      console.log(v.added);
-    });
+
+    setSelectedId(id);
     setState({ ...newState, open: true });
     clearTimeout(timeout);
     timeout = setTimeout(function () {
@@ -186,7 +186,7 @@ function Products() {
         // message="Item Added to Basket"
         key={vertical + horizontal}
       >
-        {data[0].added ? (
+        {data[selectedId].added ? (
           <StyledDivAdd>Item Added to Basket</StyledDivAdd>
         ) : (
           <StyledDivRemove>Item Removed from Basket</StyledDivRemove>

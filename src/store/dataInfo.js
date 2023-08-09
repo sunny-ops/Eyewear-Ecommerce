@@ -8,10 +8,7 @@ const dataInfoStore = createSlice({
   initialState,
   reducers: {
     addToCartFn: (state, action) => {
-      console.log(action.payload);
-      console.log(state.dataInfo[action.payload].added);
       state.dataInfo[action.payload].added = true;
-      console.log(state.dataInfo[action.payload].added);
     },
 
     removeFromCartFn: (state, action) => {
