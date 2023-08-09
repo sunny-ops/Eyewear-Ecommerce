@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { addItemFn, removeSelectedItemFn } from "../../store/cartInfo";
 import { addToCartFn, removeFromCartFn } from "../../store/dataInfo";
 import { Link } from "react-router-dom";
+import Snackbar from "@mui/material/Snackbar";
+import { styled } from "@mui/system";
 
 function Search(props) {
   const params = useParams();
@@ -12,7 +14,6 @@ function Search(props) {
   const data = useSelector((state) => state.dataInfoStore.dataInfo);
   const dispatch = useDispatch();
   const initialGlasses = [];
-  console.log("search key", key);
 
   for (let obj of data) {
     if (
@@ -35,17 +36,44 @@ function Search(props) {
     };
     initialGlasses.push(glass);
   }
-  console.log("initialGlassesLength", initialGlasses.length);
 
   const [glasses, setGlasses] = useState(initialGlasses);
-  console.log("glasses length", glasses.length);
+  const [selectedId, setSelectedId] = useState(0);
+  // snackbar
+  var timeout;
+  const [state, setState] = React.useState({
+    open: false,
+    vertical: "top",
+    horizontal: "center",
+  });
+
+  const StyledDivAdd = styled("div")({
+    backgroundColor: "#b3e7b3",
+    padding: "20px",
+    border: "1px solid #008000",
+    color: "#008000",
+    position: "relative",
+    top: "80px",
+    left: "-55px",
+  });
+
+  const StyledDivRemove = styled("div")({
+    backgroundColor: "#FFDEAD",
+    padding: "20px",
+    border: "1px solid #FF5F1F",
+    color: "#FF5F1F",
+    position: "relative",
+    top: "80px",
+    left: "-30px",
+  });
+
+  const { vertical, horizontal, open } = state;
 
   useEffect(() => {
     setGlasses(initialGlasses);
   }, [key]);
 
   const hoverFn = (v, id) => {
-    console.log(id);
     const newGlasses = [...glasses];
     newGlasses[id] = {
       ...glasses[id],
@@ -73,7 +101,7 @@ function Search(props) {
     setGlasses(newGlasses);
   };
 
-  const addToCartBtn = (id) => {
+  const addToCartBtn = (id, newState) => {
     const item = { id: id - 1, cnt: 1, size: 0, color: 0 };
     if (!data[id - 1].added) {
       dispatch(addToCartFn(id - 1));
@@ -82,6 +110,12 @@ function Search(props) {
       dispatch(removeFromCartFn(id - 1));
       dispatch(removeSelectedItemFn(id - 1));
     }
+    setSelectedId(id - 1);
+    setState({ ...newState, open: true });
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+      setState({ ...state, open: false });
+    }, 1000);
   };
 
   return (
@@ -130,7 +164,10 @@ function Search(props) {
                     bottom: v.isHovered ? "0" : "-44px",
                   }}
                   onClick={() => {
-                    addToCartBtn(v.id);
+                    addToCartBtn(v.id, {
+                      vertical: "top",
+                      horizontal: "right",
+                    });
                   }}
                 >
                   Add to Basket
@@ -143,7 +180,10 @@ function Search(props) {
                     bottom: v.isHovered ? "0" : "-44px",
                   }}
                   onClick={() => {
-                    addToCartBtn(v.id);
+                    addToCartBtn(v.id, {
+                      vertical: "top",
+                      horizontal: "right",
+                    });
                   }}
                 >
                   Remove from Basket
@@ -153,6 +193,19 @@ function Search(props) {
           );
         })}
       </div>
+      <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        open={open}
+        // onClose={handleClose}
+        // message="Item Added to Basket"
+        key={vertical + horizontal}
+      >
+        {data[selectedId].added ? (
+          <StyledDivAdd>Item Added to Basket</StyledDivAdd>
+        ) : (
+          <StyledDivRemove>Item Removed from Basket</StyledDivRemove>
+        )}
+      </Snackbar>
     </>
   );
 }
